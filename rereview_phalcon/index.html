@@ -1,503 +1,237 @@
 <!DOCTYPE HTML>
 <html>
-
 <head>
   <meta charset="utf-8">
-
+  
   <title>Phalconが評判になってきたから、動作環境構築のおさらいでもしようか | Boblog</title>
   <meta name="author" content="ima0123">
-
+  
   <meta name="description" content="Phalcon PHP, React, Docker, Vagrant, Parallels Desktop">
-
+  
+  
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Phalconが評判になってきたから、動作環境構築のおさらいでもしようか" />
-  <meta property="og:site_name" content="Boblog" />
+  <meta property="og:title" content="Phalconが評判になってきたから、動作環境構築のおさらいでもしようか"/>
+  <meta property="og:site_name" content="Boblog"/>
 
-  <meta property="og:image" content="undefined" />
+  
+    <meta property="og:image" content="undefined"/>
+  
 
   <link href="/favicon.png" rel="icon">
   <link rel="alternate" href="true" title="Boblog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.min.css" type="text/css">
 </head>
 
+
 <body>
   <!-- Google Tag Manager -->
-  <noscript>
-    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-KD83WH" height="0" width="0"
-    style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <script>
-    (function(w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KD83WH');
-
-  </script>
-  <!-- End Google Tag Manager -->
-
-  <header id="header" class="inner">
-    <div class="alignleft">
-      <h1>
-        <a href="/">Boblog</a>
-      </h1>
-      <h2>
-        <a href="/">Engineer, developping with Phalcon PHP, React, Docker, Vagrant</a>
-      </h2>
-    </div>
-    <nav id="main-nav" class="alignright">
-      <ul>
-
-        <li>
-          <a href="/">Home</a>
-        </li>
-
-        <li>
-          <a href="/archives">Archives</a>
-        </li>
-
-      </ul>
-      <div class="clearfix"></div>
-    </nav>
-    <div class="clearfix"></div>
-  </header>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KD83WH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KD83WH');</script>
+<!-- End Google Tag Manager -->
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Boblog</a></h1>
+  <h2><a href="/">Engineer, developping with Phalcon PHP, React, Docker, Vagrant</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft">
-      <div id="wrapper">
-        <article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-10T00:58:08.000Z"><a href="/rereview_phalcon/">2015-10-10</a></time>
+      
+      
+  
+    <h1 class="title">Phalconが評判になってきたから、動作環境構築のおさらいでもしようか</h1>
+  
 
-          <div class="post-content">
-            <header>
+    </header>
+    <div class="entry">
+      
+        <p>Phalcon PHPを周囲でもちらほら聞くようになってきました。</p>
+<p>いいですよね、Phalconは。</p>
+<p>なんて言ったって処理速度が速いし省メモリなので、多くのトランザクションを捌きたいというニーズにぴったりとはまります。</p>
+<p>AWSのmicroインスタンスでさえHello Worldのechoソースだけで200req/secは確保できます。</p>
+<p>他のフレームワークと比較しても差は歴然。</p>
+<p>PHPの開発のやりやすさと、処理性能を求めるならはっきりいって現段階でPhalcon以外の選択肢が見当たりません。</p>
+<p>[<a href="https://docs.phalconphp.com/ja/latest/reference/benchmark/hello-world.html:title" target="_blank" rel="external">https://docs.phalconphp.com/ja/latest/reference/benchmark/hello-world.html:title</a>]</p>
+<p>さて、Phalconもバージョン2がリリースされて、以前に残しておいた手順も古くなってきたので手順書2015 Ver.を公開しようと思います。</p>
+<p>（手順書ってどうしても古くなってしまいますよね。。）</p>
+<p>今回はローカル開発に構築簡単なVagrantfileを記載しておきます。</p>
+<p>え？なんでシェル使ってんのって？<br>今時Ansibleだろっていう声が隣から聞こえてきてますが、男は黙ってシェルスクリプトだって教えられて育ったので仕方ありません。</p>
+<p>（Ansibleも作ったから公開しますそのうちきっと）</p>
+<p>そう、ぱっと見てわかると思いますが、Parallels Desktopです。VirtualBoxなんて使ってません。<br>肝はシェルの部分なので、boxやプロバイダの設定などは読み替えて使ってみてくださいね。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"># -*- mode: ruby -*-</span><br><span class="line"># vi: <span class="keyword">set</span> ft=ruby :</span><br><span class="line"></span><br><span class="line"><span class="label">$script</span> = &lt;&lt;SCRIPT</span><br><span class="line">  yum <span class="keyword">update</span> -<span class="literal">y</span></span><br><span class="line">  rpm --import http:<span class="comment">//dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6</span></span><br><span class="line">  rpm -<span class="keyword">U</span> http:<span class="comment">//dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/epel-release-6-5.noarch.rpm</span></span><br><span class="line">  rpm --import http:<span class="comment">//mirror.its.dal.ca/ius/IUS-COMMUNITY-GPG-KEY</span></span><br><span class="line">  rpm -<span class="keyword">U</span> http:<span class="comment">//dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-14.ius.centos6.noarch.rpm</span></span><br><span class="line">  rpm -<span class="keyword">U</span> http:<span class="comment">//nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm</span></span><br><span class="line">  yum install -y git gcc make vim htop tree <span class="keyword">zip</span> unzip \</span><br><span class="line">  nginx redis30u \</span><br><span class="line">  pcre-devel php56u php56u-devel php56u-pdo php56u-mysql php56u-fpm php56u-pecl-redis</span><br><span class="line"></span><br><span class="line">  # Install Phalcon</span><br><span class="line">  <span class="keyword">if</span> [ ! -f /etc/php.<span class="keyword">d</span>/phalcon.ini ]; then</span><br><span class="line">    <span class="keyword">cd</span> /usr/<span class="keyword">local</span>/src</span><br><span class="line">    git clone --<span class="keyword">no</span>-<span class="keyword">local</span> git:<span class="comment">//github.com/phalcon/cphalcon.git</span></span><br><span class="line">    <span class="keyword">cd</span> cphalcon/build</span><br><span class="line">    ./install</span><br><span class="line">    echo <span class="string">"extension = phalcon.so"</span> &gt; /etc/php.<span class="keyword">d</span>/phalcon.ini</span><br><span class="line">  fi</span><br><span class="line"></span><br><span class="line">  service nginx start</span><br><span class="line">  service php-fpm start</span><br><span class="line">SCRIPT</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Vagrant.configure(<span class="string">"2"</span>) <span class="keyword">do</span> |config|</span><br><span class="line">  config.vm.hostname = <span class="string">"phalcon-service"</span></span><br><span class="line">  config.vm.box = <span class="string">"parallels/centos-6.6"</span></span><br><span class="line"></span><br><span class="line">  config.vm.box_check_update = true</span><br><span class="line"></span><br><span class="line">  config.vm.provision <span class="string">"shell"</span>, inline: <span class="label">$script</span></span><br><span class="line"></span><br><span class="line">  config.vm.provider <span class="string">"parallels"</span> <span class="keyword">do</span> |v|</span><br><span class="line">    v.update_guest_tools = true</span><br><span class="line">    v.optimize_power_consumption = true</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 
-              <div class="icon"></div>
-              <time datetime="2015-10-10T00:58:08.000Z">
-                <a href="/rereview_phalcon/">2015-10-10</a>
-              </time>
-
-              <h1 class="title">
-
-                Phalconが評判になってきたから、動作環境構築のおさらいでもしようか</h1>
-
-            </header>
-            <div class="entry">
-
-              <p>Phalcon PHPを周囲でもちらほら聞くようになってきました。</p>
-              <p>いいですよね、Phalconは。</p>
-              <p>なんて言ったって処理速度が速いし省メモリなので、多くのトランザクションを捌きたいというニーズにぴったりとはまります。</p>
-              <p>AWSのmicroインスタンスでさえHello Worldのechoソースだけで200req/secは確保できます。</p>
-              <p>他のフレームワークと比較しても差は歴然。</p>
-              <p>PHPの開発のやりやすさと、処理性能を求めるならはっきりいって現段階でPhalcon以外の選択肢が見当たりません。</p>
-              <p>[
-                <a href="https://docs.phalconphp.com/ja/latest/reference/benchmark/hello-world.html:title"
-                target="_blank" rel="external">https://docs.phalconphp.com/ja/latest/reference/benchmark/hello-world.html:title</a>]</p>
-              <p>さて、Phalconもバージョン2がリリースされて、以前に残しておいた手順も古くなってきたので手順書2015 Ver.を公開しようと思います。</p>
-              <p>（手順書ってどうしても古くなってしまいますよね。。）</p>
-              <p>今回はローカル開発に構築簡単なVagrantfileを記載しておきます。</p>
-              <p>え？なんでシェル使ってんのって？
-                <br>今時Ansibleだろっていう声が隣から聞こえてきてますが、男は黙ってシェルスクリプトだって教えられて育ったので仕方ありません。</p>
-              <p>（Ansibleも作ったから公開しますそのうちきっと）</p>
-              <p>そう、ぱっと見てわかると思いますが、Parallels Desktopです。VirtualBoxなんて使ってません。
-                <br>肝はシェルの部分なので、boxやプロバイダの設定などは読み替えて使ってみてくださいね。</p>
-              <figure class="highlight stata">
-                <table>
-                  <tr>
-                    <td class="gutter">
-                      <pre>
-                        <span class="line">1</span>
-                        <br>
-                        <span class="line">2</span>
-                        <br>
-                        <span class="line">3</span>
-                        <br>
-                        <span class="line">4</span>
-                        <br>
-                        <span class="line">5</span>
-                        <br>
-                        <span class="line">6</span>
-                        <br>
-                        <span class="line">7</span>
-                        <br>
-                        <span class="line">8</span>
-                        <br>
-                        <span class="line">9</span>
-                        <br>
-                        <span class="line">10</span>
-                        <br>
-                        <span class="line">11</span>
-                        <br>
-                        <span class="line">12</span>
-                        <br>
-                        <span class="line">13</span>
-                        <br>
-                        <span class="line">14</span>
-                        <br>
-                        <span class="line">15</span>
-                        <br>
-                        <span class="line">16</span>
-                        <br>
-                        <span class="line">17</span>
-                        <br>
-                        <span class="line">18</span>
-                        <br>
-                        <span class="line">19</span>
-                        <br>
-                        <span class="line">20</span>
-                        <br>
-                        <span class="line">21</span>
-                        <br>
-                        <span class="line">22</span>
-                        <br>
-                        <span class="line">23</span>
-                        <br>
-                        <span class="line">24</span>
-                        <br>
-                        <span class="line">25</span>
-                        <br>
-                        <span class="line">26</span>
-                        <br>
-                        <span class="line">27</span>
-                        <br>
-                        <span class="line">28</span>
-                        <br>
-                        <span class="line">29</span>
-                        <br>
-                        <span class="line">30</span>
-                        <br>
-                        <span class="line">31</span>
-                        <br>
-                        <span class="line">32</span>
-                        <br>
-                        <span class="line">33</span>
-                        <br>
-                        <span class="line">34</span>
-                        <br>
-                        <span class="line">35</span>
-                        <br>
-                        <span class="line">36</span>
-                        <br>
-                        <span class="line">37</span>
-                        <br>
-                        <span class="line">38</span>
-                        <br>
-                        <span class="line">39</span>
-                        <br>
-                        <span class="line">40</span>
-                        <br>
-                        <span class="line">41</span>
-                        <br>
-                      </pre>
-                    </td>
-                    <td class="code">
-                      <pre>
-                        <span class="line"># -*- mode: ruby -*-</span>
-                        <br>
-                        <span class="line"># vi:
-                          <span class="keyword">set</span> ft=ruby :</span>
-                        <br>
-                        <span class="line"></span>
-                        <br>
-                        <span class="line">
-                          <span class="label">$script</span> = &lt;&lt;SCRIPT</span>
-                        <br>
-                        <span class="line"> yum
-                          <span class="keyword">update</span> -
-                          <span class="literal">y</span>
-                        </span>
-                        <br>
-                        <span class="line"> rpm --import http:
-                          <span class="comment">//dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6</span>
-                        </span>
-                        <br>
-                        <span class="line"> rpm -
-                          <span class="keyword">U</span> http:
-                          <span class="comment">//dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/epel-release-6-5.noarch.rpm</span>
-                        </span>
-                        <br>
-                        <span class="line"> rpm --import http:
-                          <span class="comment">//mirror.its.dal.ca/ius/IUS-COMMUNITY-GPG-KEY</span>
-                        </span>
-                        <br>
-                        <span class="line"> rpm -
-                          <span class="keyword">U</span> http:
-                          <span class="comment">//dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-14.ius.centos6.noarch.rpm</span>
-                        </span>
-                        <br>
-                        <span class="line"> rpm -
-                          <span class="keyword">U</span> http:
-                          <span class="comment">//nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm</span>
-                        </span>
-                        <br>
-                        <span class="line"> yum install -y git gcc make vim htop tree
-                          <span class="keyword">zip</span> unzip \</span>
-                        <br>
-                        <span class="line"> nginx redis30u \</span>
-                        <br>
-                        <span class="line"> pcre-devel php56u php56u-devel php56u-pdo php56u-mysql php56u-fpm
-                          php56u-pecl-redis
-                        </span>
-                        <br>
-                        <span class="line"></span>
-                        <br>
-                        <span class="line"> # Install Phalcon</span>
-                        <br>
-                        <span class="line">
-                          <span class="keyword">if</span> [ ! -f /etc/php.
-                          <span class="keyword">d</span>/phalcon.ini ]; then</span>
-                        <br>
-                        <span class="line">
-                          <span class="keyword">cd</span> /usr/
-                          <span class="keyword">local</span>/src</span>
-                        <br>
-                        <span class="line"> git clone --
-                          <span class="keyword">no</span>-
-                          <span class="keyword">local</span> git:
-                          <span class="comment">//github.com/phalcon/cphalcon.git</span>
-                        </span>
-                        <br>
-                        <span class="line">
-                          <span class="keyword">cd</span> cphalcon/build</span>
-                        <br>
-                        <span class="line"> ./install</span>
-                        <br>
-                        <span class="line"> echo
-                          <span class="string">"extension = phalcon.so"</span> &gt; /etc/php.
-                          <span class="keyword">d</span>/phalcon.ini</span>
-                        <br>
-                        <span class="line"> fi</span>
-                        <br>
-                        <span class="line"></span>
-                        <br>
-                        <span class="line"> service nginx start</span>
-                        <br>
-                        <span class="line"> service php-fpm start</span>
-                        <br>
-                        <span class="line">SCRIPT</span>
-                        <br>
-                        <span class="line"></span>
-                        <br>
-                        <span class="line"></span>
-                        <br>
-                        <span class="line">Vagrant.configure(
-                          <span class="string">"2"</span>)
-                          <span class="keyword">do</span> |config|</span>
-                        <br>
-                        <span class="line"> config.vm.hostname =
-                          <span class="string">"phalcon-service"</span>
-                        </span>
-                        <br>
-                        <span class="line"> config.vm.box =
-                          <span class="string">"parallels/centos-6.6"</span>
-                        </span>
-                        <br>
-                        <span class="line"></span>
-                        <br>
-                        <span class="line"> config.vm.box_check_update = true</span>
-                        <br>
-                        <span class="line"></span>
-                        <br>
-                        <span class="line"> config.vm.provision
-                          <span class="string">"shell"</span>, inline:
-                          <span class="label">$script</span>
-                        </span>
-                        <br>
-                        <span class="line"></span>
-                        <br>
-                        <span class="line"> config.vm.provider
-                          <span class="string">"parallels"</span>
-                          <span class="keyword">do</span> |v|</span>
-                        <br>
-                        <span class="line"> v.update_guest_tools = true</span>
-                        <br>
-                        <span class="line"> v.optimize_power_consumption = true</span>
-                        <br>
-                        <span class="line"> end</span>
-                        <br>
-                        <span class="line">end</span>
-                        <br>
-                      </pre>
-                    </td>
-                  </tr>
-                </table>
-              </figure>
-
-            </div>
-            <footer>
-
-              <div class="tags">
-                <a href="/tags/Docker/">Docker</a>,
-                <a href="/tags/PHP/">PHP</a>,
-                <a href="/tags/Phalcon/">Phalcon</a>
-              </div>
-
-              <div class="addthis addthis_toolbox addthis_default_style">
-
-                <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-
-                <a class="addthis_button_tweet"></a>
-
-                <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-
-                <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-
-                <a class="addthis_counter addthis_pill_style"></a>
-              </div>
-              <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
-
-              <div class="clearfix"></div>
-            </footer>
-          </div>
-        </article>
-
-        <section id="comment">
-          <h1 class="title">Comments</h1>
-
-          <div id="fb-root"></div>
-          <script>
-            (function(d, s, id) {
-              var js, fjs = d.getElementsByTagName(s)[0];
-              if (d.getElementById(id)) return;
-              js = d.createElement(s);
-              js.id = id;
-              js.src =
-                "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1471867629788452";
-              fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-
-          </script>
-
-          <div class="fb-comments" data-href="http://boblog.ima0123.com/rereview_phalcon/index.html"
-          data-num-posts="5" data-width="840" data-colorscheme="light"></div>
-
-        </section>
-      </div>
+      
     </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Docker/">Docker</a>, <a href="/tags/PHP/">PHP</a>, <a href="/tags/Phalcon/">Phalcon</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1471867629788452";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://boblog.ima0123.com/rereview_phalcon/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
     <aside id="sidebar" class="alignright">
-      <div class="search">
-        <form action="//google.com/search" method="get" accept-charset="utf-8">
-          <input type="search" name="q" results="0" placeholder="Search">
-          <input type="hidden" name="q" value="site:boblog.ima0123.com">
-        </form>
-      </div>
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:boblog.ima0123.com">
+  </form>
+</div>
 
-      <div class="widget tag">
-        <h3 class="title">Tags</h3>
-        <ul class="entry">
+  
 
-          <li>
-            <a href="/tags/Berkshelf/">Berkshelf</a>
-            <small>1</small>
-          </li>
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Berkshelf/">Berkshelf</a><small>1</small></li>
+  
+    <li><a href="/tags/Chef-Solo/">Chef Solo</a><small>2</small></li>
+  
+    <li><a href="/tags/Docker/">Docker</a><small>1</small></li>
+  
+    <li><a href="/tags/Knife-Solo/">Knife Solo</a><small>2</small></li>
+  
+    <li><a href="/tags/Mac/">Mac</a><small>2</small></li>
+  
+    <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
+  
+    <li><a href="/tags/ParallelsDesktop/">ParallelsDesktop</a><small>2</small></li>
+  
+    <li><a href="/tags/Phalcon/">Phalcon</a><small>4</small></li>
+  
+    <li><a href="/tags/Vagrant/">Vagrant</a><small>4</small></li>
+  
+    <li><a href="/tags/VirtualBox/">VirtualBox</a><small>2</small></li>
+  
+    <li><a href="/tags/cookbook/">cookbook</a><small>1</small></li>
+  
+    <li><a href="/tags/フレームワーク/">フレームワーク</a><small>1</small></li>
+  
+  </ul>
+</div>
 
-          <li>
-            <a href="/tags/Chef-Solo/">Chef Solo</a>
-            <small>2</small>
-          </li>
 
-          <li>
-            <a href="/tags/Docker/">Docker</a>
-            <small>1</small>
-          </li>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- main -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8522245891659353"
+     data-ad-slot="3498006029"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
-          <li>
-            <a href="/tags/Knife-Solo/">Knife Solo</a>
-            <small>2</small>
-          </li>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- サンプル広告 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8522245891659353"
+     data-ad-slot="5676292825"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
-          <li>
-            <a href="/tags/Mac/">Mac</a>
-            <small>2</small>
-          </li>
 
-          <li>
-            <a href="/tags/PHP/">PHP</a>
-            <small>2</small>
-          </li>
-
-          <li>
-            <a href="/tags/ParallelsDesktop/">ParallelsDesktop</a>
-            <small>2</small>
-          </li>
-
-          <li>
-            <a href="/tags/Phalcon/">Phalcon</a>
-            <small>4</small>
-          </li>
-
-          <li>
-            <a href="/tags/Vagrant/">Vagrant</a>
-            <small>4</small>
-          </li>
-
-          <li>
-            <a href="/tags/VirtualBox/">VirtualBox</a>
-            <small>2</small>
-          </li>
-
-          <li>
-            <a href="/tags/cookbook/">cookbook</a>
-            <small>1</small>
-          </li>
-
-          <li>
-            <a href="/tags/フレームワーク/">フレームワーク</a>
-            <small>1</small>
-          </li>
-
-        </ul>
-      </div>
-
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <!-- main -->
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8522245891659353"
-      data-ad-slot="3498006029" data-ad-format="auto"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-
-      </script>
-
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <!-- サンプル広告 -->
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8522245891659353"
-      data-ad-slot="5676292825" data-ad-format="auto"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-
-      </script>
-    </aside>
+</aside>
     <div class="clearfix"></div>
   </div>
-  <footer id="footer" class="inner">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- ふった広告 -->
-    <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8522245891659353"
-    data-ad-slot="8629759224"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
+  <footer id="footer" class="inner"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ふった広告 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-8522245891659353"
+     data-ad-slot="8629759224"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<div class="clearfix"></div>
 
-    </script>
-    <div class="clearfix"></div>
 
-    <div class="alignleft">
-
-      &copy; 2015 ima0123
-
-    </div>
-    <div class="clearfix"></div>
-  </footer>
+<div class="alignleft">
+  
+  &copy; 2015 ima0123
+  
+</div>
+<div class="clearfix"></div>
+</footer>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
-  <script src="/js/gallery.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
 
 </body>
-
 </html>
