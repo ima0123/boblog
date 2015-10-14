@@ -20,7 +20,7 @@
 
   <link href="/favicon.png" rel="icon">
   <link rel="alternate" href="/atom.xml" title="Boblog" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
 
@@ -57,11 +57,56 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-10-10T00:58:08.000Z"><a href="/2015/10/10/cifo1xo3e0002b9jwjz0gotct/">2015-10-10</a></time>
+        <time datetime="2015-10-14T13:40:30.000Z"><a href="/2015/10/14/cifqukcpk0001w3mlofhppl0j/">2015-10-14</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/10/10/cifo1xo3e0002b9jwjz0gotct/">Phalconが評判になってきたから、動作環境構築のおさらいでもしようか</a></h1>
+    <h1 class="title"><a href="/2015/10/14/cifqukcpk0001w3mlofhppl0j/">VagrantのBoxをアップデートする</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>ダウンロードしたVagrantのBoxに更新があれば、アップデートすることができます。</p>
+<h2 id="Vagrantのアップデート">Vagrantのアップデート</h2><p>アップデートしたいBoxのVagrantfileがおいてあるディレクトリで、ターミナルから</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant <span class="keyword">box </span>update</span><br></pre></td></tr></table></figure>
+<p>これだけ。<br>新しいBoxは古いBoxに上書きされるのではなく、別のBoxとして保存されます。</p>
+<h2 id="Boxの一覧を表示する">Boxの一覧を表示する</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box <span class="type">list</span></span><br></pre></td></tr></table></figure>
+<p>Boxの一覧を表示できます。<br>下記のparallelsはProvider、0.2.0や1.0.0はバージョンですね。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">parallels/centos-<span class="number">6.5</span> (parallels, <span class="number">0.2</span><span class="number">.0</span>)</span><br><span class="line">parallels/centos-<span class="number">6.5</span> (parallels, <span class="number">1.0</span><span class="number">.0</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="古いBoxを削除する">古いBoxを削除する</h2><p>古いBoxを削除するには以下のコマンドを実行します。</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant <span class="keyword">box </span>remove &#123;<span class="keyword">box_name&#125; </span>--provider &#123;PROVIDER_NAME&#125; --<span class="keyword">box-version </span>VERSION</span><br></pre></td></tr></table></figure>
+<p>たとえば、上記のparallels/centos-6.5：バージョン0.20のBoxを削除するには</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box remove parallels/centos-<span class="number">6.5</span>  --box-version <span class="number">0.2</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+<p>再度、<code>vagrant box list</code>するとバージョン0.2.0のBoxが削除できていることを確認できます。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <div class="clearfix"></div>
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-10T00:58:08.000Z"><a href="/2015/10/10/cifqukcq00005w3ml9l2siggw/">2015-10-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/10/cifqukcq00005w3ml9l2siggw/">Phalconが評判になってきたから、動作環境構築のおさらいでもしようか</a></h1>
   
 
     </header>
@@ -103,11 +148,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-10-09T12:58:14.000Z"><a href="/2015/10/09/cifo1xo380001b9jwpfrs30d5/">2015-10-09</a></time>
+        <time datetime="2015-10-09T12:58:14.000Z"><a href="/2015/10/09/cifqukcpx0004w3mlcz4u1uv1/">2015-10-09</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/10/09/cifo1xo380001b9jwpfrs30d5/">Hello World</a></h1>
+    <h1 class="title"><a href="/2015/10/09/cifqukcpx0004w3mlcz4u1uv1/">Hello World</a></h1>
   
 
     </header>
@@ -163,6 +208,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <li><a href="/tags/Docker/">Docker</a><small>1</small></li>
   
     <li><a href="/tags/Phalcon/">Phalcon</a><small>1</small></li>
+  
+    <li><a href="/tags/Vagrant-Parallels/">Vagrant, Parallels</a><small>1</small></li>
   
   </ul>
 </div>
