@@ -9,25 +9,23 @@
 
   <meta name="description" content="Phalcon PHP, React, Docker, Vagrant, Parallels Desktop">
 
-
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="Mac御用達のParallelsDesktopを使ってVagrantを起動する" />
   <meta property="og:site_name" content="Boblog" />
 
-
   <meta property="og:image" content="undefined" />
-
 
   <link href="/favicon.png" rel="icon">
   <link rel="alternate" href="true" title="Boblog" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.min.css" type="text/css">
 </head>
 
 <body>
   <!-- Google Tag Manager -->
   <noscript>
-    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-KD83WH" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-KD83WH" height="0" width="0"
+    style="display:none;visibility:hidden"></iframe>
   </noscript>
   <script>
     (function(w, d, s, l, i) {
@@ -44,19 +42,29 @@
         '//www.googletagmanager.com/gtm.js?id=' + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-KD83WH');
+
   </script>
   <!-- End Google Tag Manager -->
+
   <header id="header" class="inner">
     <div class="alignleft">
-      <h1><a href="/">Boblog</a></h1>
-      <h2><a href="/">Engineer, developping with Phalcon PHP, React, Docker, Vagrant</a></h2>
+      <h1>
+        <a href="/">Boblog</a>
+      </h1>
+      <h2>
+        <a href="/">Engineer, developping with Phalcon PHP, React, Docker, Vagrant</a>
+      </h2>
     </div>
     <nav id="main-nav" class="alignright">
       <ul>
 
-        <li><a href="/">Home</a></li>
+        <li>
+          <a href="/">Home</a>
+        </li>
 
-        <li><a href="/archives">Archives</a></li>
+        <li>
+          <a href="/archives">Archives</a>
+        </li>
 
       </ul>
       <div class="clearfix"></div>
@@ -72,9 +80,14 @@
             <header>
 
               <div class="icon"></div>
-              <time datetime="2015-10-14T13:43:26.000Z"><a href="/startup-parallels-desktop/">2015-10-14</a></time>
+              <time datetime="2015-10-14T13:43:26.000Z">
+                <a href="/startup-parallels-desktop/">2015-10-14</a>
+              </time>
 
-              <h1 class="title">Mac御用達のParallelsDesktopを使ってVagrantを起動する</h1>
+              <h1 class="title">
+
+                Mac御用達のParallelsDesktopを使ってVagrantを起動する</h1>
+
             </header>
             <div class="entry">
 
@@ -101,7 +114,8 @@
               <h3 id="デメリット">デメリット</h3>
               <ul>
                 <li>対応しているBoxが少ない
-                  <br>[<a href="https://vagrantcloud.com/search?provider=parallels" target="_blank" rel="external">https://vagrantcloud.com/search?provider=parallels</a>]
+                  <br>[
+                  <a href="https://vagrantcloud.com/search?provider=parallels" target="_blank" rel="external">https://vagrantcloud.com/search?provider=parallels</a>]
                   <br>（古いバージョンのOSなどには対応していないようです）</li>
               </ul>
               <p>※ ほかにも何かあったら教えてください</p>
@@ -116,14 +130,32 @@
                 </li>
                 <li>
                   <p>vagrantがすでに動作できる状態にある
-                    <br><code>vagrant -v</code>するとvagrantのバージョンが表示されること </p>
+                    <br>
+                    <code>vagrant -v</code>するとvagrantのバージョンが表示されること </p>
                 </li>
               </ul>
               <figure class="highlight cpp">
                 <table>
                   <tr>
-                    <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td>
-                    <td class="code"><pre><span class="line">$ vagrant -v  </span><br><span class="line">Vagrant <span class="number">1.6</span><span class="number">.5</span></span><br></pre></td>
+                    <td class="gutter">
+                      <pre>
+                        <span class="line">1</span>
+                        <br>
+                        <span class="line">2</span>
+                        <br>
+                      </pre>
+                    </td>
+                    <td class="code">
+                      <pre>
+                        <span class="line">$ vagrant -v </span>
+                        <br>
+                        <span class="line">Vagrant
+                          <span class="number">1.6</span>
+                          <span class="number">.5</span>
+                        </span>
+                        <br>
+                      </pre>
+                    </td>
                   </tr>
                 </table>
               </figure>
@@ -135,8 +167,19 @@
               <figure class="highlight cmake">
                 <table>
                   <tr>
-                    <td class="gutter"><pre><span class="line">1</span><br></pre></td>
-                    <td class="code"><pre><span class="line">$ vagrant plugin <span class="keyword">install</span> vagrant-parallels</span><br></pre></td>
+                    <td class="gutter">
+                      <pre>
+                        <span class="line">1</span>
+                        <br>
+                      </pre>
+                    </td>
+                    <td class="code">
+                      <pre>
+                        <span class="line">$ vagrant plugin
+                          <span class="keyword">install</span> vagrant-parallels</span>
+                        <br>
+                      </pre>
+                    </td>
                   </tr>
                 </table>
               </figure>
@@ -146,43 +189,80 @@
               <figure class="highlight bash">
                 <table>
                   <tr>
-                    <td class="gutter"><pre><span class="line">1</span><br></pre></td>
-                    <td class="code"><pre><span class="line"><span class="built_in">export</span> VAGRANT_DEFAULT_PROVIDER=parallels</span><br></pre></td>
+                    <td class="gutter">
+                      <pre>
+                        <span class="line">1</span>
+                        <br>
+                      </pre>
+                    </td>
+                    <td class="code">
+                      <pre>
+                        <span class="line">
+                          <span class="built_in">export</span> VAGRANT_DEFAULT_PROVIDER=parallels</span>
+                        <br>
+                      </pre>
+                    </td>
                   </tr>
                 </table>
               </figure>
-              <p>コマンドラインから<code>echo VAGRANT_DEFAULT_PROVIDER</code>して<code>parallels</code>が表示されればOK</p>
+              <p>コマンドラインから
+                <code>echo VAGRANT_DEFAULT_PROVIDER</code>して
+                <code>parallels</code>が表示されればOK</p>
               <h4 id="CentOS6-5をインストールする">CentOS6.5をインストールする</h4>
               <p>Macのターミナルから以下のコマンドを実行します。</p>
               <figure class="highlight cpp">
                 <table>
                   <tr>
-                    <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td>
-                    <td class="code"><pre><span class="line">cd ~/vagrant/centos-<span class="number">6.5</span> <span class="comment">// お好きなディレクトリでどうぞ</span></span><br><span class="line">vagrant init parallels/centos-<span class="number">6.5</span></span><br><span class="line">vagrant up</span><br></pre></td>
+                    <td class="gutter">
+                      <pre>
+                        <span class="line">1</span>
+                        <br>
+                        <span class="line">2</span>
+                        <br>
+                        <span class="line">3</span>
+                        <br>
+                      </pre>
+                    </td>
+                    <td class="code">
+                      <pre>
+                        <span class="line">cd ~/vagrant/centos-
+                          <span class="number">6.5</span>
+                          <span class="comment">// お好きなディレクトリでどうぞ</span>
+                        </span>
+                        <br>
+                        <span class="line">vagrant init parallels/centos-
+                          <span class="number">6.5</span>
+                        </span>
+                        <br>
+                        <span class="line">vagrant up</span>
+                        <br>
+                      </pre>
+                    </td>
                   </tr>
                 </table>
               </figure>
-              <p><code>default: Machine booted and ready!</code>と出れば正常に起動成功！</p>
+              <p>
+                <code>default: Machine booted and ready!</code>と出れば正常に起動成功！</p>
               <p>これでParallelsDesktopを使った起動ができました。
                 <br>Enjoy Vagrant running on ParallelsDesktop!</p>
 
             </div>
             <footer>
 
-
               <div class="tags">
-                <a href="/tags/Mac/">Mac</a>, <a href="/tags/ParallelsDesktop/">ParallelsDesktop</a>, <a href="/tags/Vagrant/">Vagrant</a>, <a href="/tags/VirtualBox/">VirtualBox</a>
+                <a href="/tags/Mac/">Mac</a>,
+                <a href="/tags/ParallelsDesktop/">ParallelsDesktop</a>,
+                <a href="/tags/Vagrant/">Vagrant</a>,
+                <a href="/tags/VirtualBox/">VirtualBox</a>
               </div>
+
               <div class="addthis addthis_toolbox addthis_default_style">
 
                 <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 
-
                 <a class="addthis_button_tweet"></a>
 
-
                 <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-
 
                 <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
 
@@ -198,7 +278,6 @@
         <section id="comment">
           <h1 class="title">Comments</h1>
 
-
           <div id="fb-root"></div>
           <script>
             (function(d, s, id) {
@@ -206,13 +285,15 @@
               if (d.getElementById(id)) return;
               js = d.createElement(s);
               js.id = id;
-              js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1471867629788452";
+              js.src =
+                "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1471867629788452";
               fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
+
           </script>
 
-          <div class="fb-comments" data-href="http://boblog.ima0123.com/startup-parallels-desktop/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
-
+          <div class="fb-comments" data-href="http://boblog.ima0123.com/startup-parallels-desktop/index.html"
+          data-num-posts="5" data-width="840" data-colorscheme="light"></div>
 
         </section>
       </div>
@@ -225,51 +306,89 @@
         </form>
       </div>
 
-
-
       <div class="widget tag">
         <h3 class="title">Tags</h3>
         <ul class="entry">
 
-          <li><a href="/tags/Berkshelf/">Berkshelf</a><small>1</small></li>
+          <li>
+            <a href="/tags/Berkshelf/">Berkshelf</a>
+            <small>1</small>
+          </li>
 
-          <li><a href="/tags/Chef-Solo/">Chef Solo</a><small>2</small></li>
+          <li>
+            <a href="/tags/Chef-Solo/">Chef Solo</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/Docker/">Docker</a><small>1</small></li>
+          <li>
+            <a href="/tags/Docker/">Docker</a>
+            <small>1</small>
+          </li>
 
-          <li><a href="/tags/Knife-Solo/">Knife Solo</a><small>2</small></li>
+          <li>
+            <a href="/tags/Knife-Solo/">Knife Solo</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/Mac/">Mac</a><small>2</small></li>
+          <li>
+            <a href="/tags/Mac/">Mac</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
+          <li>
+            <a href="/tags/PHP/">PHP</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/ParallelsDesktop/">ParallelsDesktop</a><small>2</small></li>
+          <li>
+            <a href="/tags/ParallelsDesktop/">ParallelsDesktop</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/Phalcon/">Phalcon</a><small>4</small></li>
+          <li>
+            <a href="/tags/Phalcon/">Phalcon</a>
+            <small>4</small>
+          </li>
 
-          <li><a href="/tags/Vagrant/">Vagrant</a><small>4</small></li>
+          <li>
+            <a href="/tags/Vagrant/">Vagrant</a>
+            <small>4</small>
+          </li>
 
-          <li><a href="/tags/VirtualBox/">VirtualBox</a><small>2</small></li>
+          <li>
+            <a href="/tags/VirtualBox/">VirtualBox</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/cookbook/">cookbook</a><small>1</small></li>
+          <li>
+            <a href="/tags/cookbook/">cookbook</a>
+            <small>1</small>
+          </li>
 
-          <li><a href="/tags/フレームワーク/">フレームワーク</a><small>1</small></li>
+          <li>
+            <a href="/tags/フレームワーク/">フレームワーク</a>
+            <small>1</small>
+          </li>
 
         </ul>
       </div>
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <!-- main -->
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8522245891659353" data-ad-slot="3498006029" data-ad-format="auto"></ins>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8522245891659353"
+      data-ad-slot="3498006029" data-ad-format="auto"></ins>
       <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
+
       </script>
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <!-- サンプル広告 -->
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8522245891659353" data-ad-slot="5676292825" data-ad-format="auto"></ins>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8522245891659353"
+      data-ad-slot="5676292825" data-ad-format="auto"></ins>
       <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
+
       </script>
     </aside>
     <div class="clearfix"></div>
@@ -277,12 +396,13 @@
   <footer id="footer" class="inner">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- ふった広告 -->
-    <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8522245891659353" data-ad-slot="8629759224"></ins>
+    <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8522245891659353"
+    data-ad-slot="8629759224"></ins>
     <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
+
     </script>
     <div class="clearfix"></div>
-
 
     <div class="alignleft">
 
@@ -294,6 +414,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="/js/jquery.imagesloaded.min.js"></script>
   <script src="/js/gallery.js"></script>
+
 </body>
 
 </html>

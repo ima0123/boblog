@@ -9,25 +9,22 @@
 
   <meta name="description" content="Phalcon PHP, React, Docker, Vagrant, Parallels Desktop">
 
-
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
 
   <meta property="og:site_name" content="Boblog" />
 
-
   <meta property="og:image" content="undefined" />
-
 
   <link href="/favicon.png" rel="icon">
   <link rel="alternate" href="true" title="Boblog" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.min.css" type="text/css">
 </head>
 
 <body>
   <!-- Google Tag Manager -->
   <noscript>
-    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-KD83WH" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-KD83WH" height="0" width="0"
+    style="display:none;visibility:hidden"></iframe>
   </noscript>
   <script>
     (function(w, d, s, l, i) {
@@ -44,19 +41,29 @@
         '//www.googletagmanager.com/gtm.js?id=' + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-KD83WH');
+
   </script>
   <!-- End Google Tag Manager -->
+
   <header id="header" class="inner">
     <div class="alignleft">
-      <h1><a href="/">Boblog</a></h1>
-      <h2><a href="/">Engineer, developping with Phalcon PHP, React, Docker, Vagrant</a></h2>
+      <h1>
+        <a href="/">Boblog</a>
+      </h1>
+      <h2>
+        <a href="/">Engineer, developping with Phalcon PHP, React, Docker, Vagrant</a>
+      </h2>
     </div>
     <nav id="main-nav" class="alignright">
       <ul>
 
-        <li><a href="/">Home</a></li>
+        <li>
+          <a href="/">Home</a>
+        </li>
 
-        <li><a href="/archives">Archives</a></li>
+        <li>
+          <a href="/archives">Archives</a>
+        </li>
 
       </ul>
       <div class="clearfix"></div>
@@ -72,21 +79,31 @@
             <header>
 
               <div class="icon"></div>
-              <time datetime="2015-10-14T13:49:05.000Z"><a href="/develop-with-phalcon-that-perform-faster/">2015-10-14</a></time>
+              <time datetime="2015-10-14T13:49:05.000Z">
+                <a href="/develop-with-phalcon-that-perform-faster/">2015-10-14</a>
+              </time>
 
-              <h1 class="title"><a href="/develop-with-phalcon-that-perform-faster/">超高速PHPフレームワークPhalconを使ったWeb制作</a></h1>
+              <h1 class="title">
+
+                <a href="/develop-with-phalcon-that-perform-faster/">超高速PHPフレームワークPhalconを使ったWeb制作</a>
+              </h1>
+
             </header>
             <div class="entry">
 
               <p>Falconと間違えやすいですよね、Phalcon。
                 <br>インストール時にこの勘違いは致命的です。。</p>
-              <p><a href="http://phalconphp.com/ja/" target="_blank" rel="external">http://phalconphp.com/ja/</a></p>
+              <p>
+                <a href="http://phalconphp.com/ja/" target="_blank" rel="external">http://phalconphp.com/ja/</a>
+              </p>
               <h2 id="爆速とよばれるPHPフレームワークPhalcon">爆速とよばれるPHPフレームワークPhalcon</h2>
               <p>最近Phalconを使ってWeb制作をしていますが非常に高速に動作し、
                 <br>仕組みもいわゆるフレームワークの概念から大きく外れておらず
                 <br>開発のやりがいのある印象です。</p>
               <p>Phalconがどれだけ早いかというのは、以下のサイトにベンチマークが掲載されています。</p>
-              <p>[<a href="https://docs.phalconphp.com/ja/latest/reference/benchmark/hello-world.html:title" target="_blank" rel="external">https://docs.phalconphp.com/ja/latest/reference/benchmark/hello-world.html:title</a>]</p>
+              <p>[
+                <a href="https://docs.phalconphp.com/ja/latest/reference/benchmark/hello-world.html:title"
+                target="_blank" rel="external">https://docs.phalconphp.com/ja/latest/reference/benchmark/hello-world.html:title</a>]</p>
               <p>（2015/08/04 リンク更新）</p>
               <p>ちゃんと、前提条件を明記してくれていたベンチで信頼性が高めですね。
                 <br>手元でも似たようなベンチ結果が出ました。</p>
@@ -113,81 +130,130 @@
               <p>必要なパッケージ類のインストールのために
                 <br>remi, epel, rpm-forgeレポジトリを追加します。</p>
               <p>サードパーティ製のリポジトリを追加するので、優先度をつけるyum-propertiesを導入する。
-                <br>(詳細は<a href="http://blog.trippyboy.com/2012/centos/centos6-2-yum%E3%81%AEpriorities%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%E3%81%AE%E5%B7%BB/" target="_blank" rel="external">こちら</a>を参照させていただきました)</p>
-              <pre><code>yum <span class="operator"><span class="keyword">install</span> yum-<span class="keyword">plugin</span>-priorities
-
-# epel
-$ rpm -Uvh <span class="keyword">http</span>://<span class="keyword">ftp</span>-srv2.kddilabs.jp/Linux/distributions/fedora/epel/<span class="number">6</span>/x86_64/epel-<span class="keyword">release</span>-<span class="number">6</span>-<span class="number">8.</span>noarch.rpm
-
-# remi
-$ rpm -Uvh <span class="keyword">http</span>://rpms.famillecollet.com/<span class="keyword">enterprise</span>/remi-<span class="keyword">release</span>-<span class="number">6.</span>rpm
-
-# rpmforge
-$ rpm -Uvh <span class="keyword">http</span>://pkgs.repoforge.org/rpmforge-<span class="keyword">release</span>/rpmforge-<span class="keyword">release</span>-<span class="number">0.5</span><span class="number">.3</span>-<span class="number">1.</span>el6.rf.x86_64.rpm</span>
-</code></pre>
+                <br>(詳細は
+                <a href="http://blog.trippyboy.com/2012/centos/centos6-2-yum%E3%81%AEpriorities%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%E3%81%AE%E5%B7%BB/"
+                target="_blank" rel="external">こちら</a>を参照させていただきました)</p>
+              <pre>
+                <code>yum
+                  <span class="operator">
+                    <span class="keyword">install</span> yum-
+                    <span class="keyword">plugin</span>-priorities # epel $ rpm -Uvh
+                    <span class="keyword">http</span>://
+                    <span class="keyword">ftp</span>-srv2.kddilabs.jp/Linux/distributions/fedora/epel/
+                    <span class="number">6</span>/x86_64/epel-
+                    <span class="keyword">release</span>-
+                    <span class="number">6</span>-
+                    <span class="number">8.</span>noarch.rpm # remi $ rpm -Uvh
+                    <span class="keyword">http</span>://rpms.famillecollet.com/
+                    <span class="keyword">enterprise</span>/remi-
+                    <span class="keyword">release</span>-
+                    <span class="number">6.</span>rpm # rpmforge $ rpm -Uvh
+                    <span class="keyword">http</span>://pkgs.repoforge.org/rpmforge-
+                    <span class="keyword">release</span>/rpmforge-
+                    <span class="keyword">release</span>-
+                    <span class="number">0.5</span>
+                    <span class="number">.3</span>-
+                    <span class="number">1.</span>el6.rf.x86_64.rpm</span>
+                </code>
+              </pre>
               <p>必要なパッケージ類のインストール</p>
-              <pre><code>yum <span class="keyword">install</span> enablerepo=remi php-devel php-mysql gcc libtool git
-</code></pre>
-              <p><code>php -v</code>してバージョンを確認。</p>
+              <pre>
+                <code>yum
+                  <span class="keyword">install</span> enablerepo=remi php-devel php-mysql gcc libtool
+                  git
+                </code>
+              </pre>
+              <p>
+                <code>php -v</code>してバージョンを確認。</p>
               <p>phalconのダウンロード&amp;インストール</p>
-              <pre><code><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src/
-git <span class="built_in">clone</span> git://github.com/phalcon/cphalcon.git
-<span class="built_in">cd</span> cphalcon/build
-./install <span class="comment">#←別ディレクトリからの実行はエラーがでます</span>
-</code></pre>
+              <pre>
+                <code>
+                  <span class="built_in">cd</span> /usr/
+                  <span class="built_in">local</span>/src/ git
+                  <span class="built_in">clone</span> git://github.com/phalcon/cphalcon.git
+                  <span class="built_in">cd</span> cphalcon/build ./install
+                  <span class="comment">#←別ディレクトリからの実行はエラーがでます</span>
+                </code>
+              </pre>
               <h3 id="PHPの設定">PHPの設定</h3>
               <p>PHPモジュールにPhalconの動的ライブラリを読み込ませます。</p>
-              <pre><code>$ vi /etc/php.<span class="keyword">d</span>/phalcon.ini
-extension = phalcon.<span class="keyword">so</span>
-</code></pre>
+              <pre>
+                <code>$ vi /etc/php.
+                  <span class="keyword">d</span>/phalcon.ini extension = phalcon.
+                  <span class="keyword">so</span>
+                </code>
+              </pre>
               <p>HTTPサーバー再起動
                 <br> service httpd restart</p>
               <h3 id="Phalcon_Developer_Toolsのインストール">Phalcon Developer Toolsのインストール</h3>
               <p>Composerからインストールする</p>
               <p>cd /usr/local/shareなどで</p>
-              <pre><code>curl -s <span class="string">http:</span><span class="comment">//getcomposer.org/installer | php</span>
-</code></pre>
+              <pre>
+                <code>curl -s
+                  <span class="string">http:</span>
+                  <span class="comment">//getcomposer.org/installer | php</span>
+                </code>
+              </pre>
               <p>同階層でcomposer.jsonを作成</p>
-              <pre><code>{
-    "<span class="attribute">require</span>": <span class="value">{
-        "<span class="attribute">phalcon/devtools</span>": <span class="value"><span class="string">"dev-master"</span>
-    </span>}
-</span>}
-</code></pre>
+              <pre>
+                <code>{ "
+                  <span class="attribute">require</span>":
+                  <span class="value">{ "
+                    <span class="attribute">phalcon/devtools</span>":
+                    <span class="value">
+                      <span class="string">"dev-master"</span>
+                    </span>}
+                  </span>}
+                </code>
+              </pre>
               <p>composer installを実行</p>
-              <pre><code>php composer<span class="class">.phar</span> install
-</code></pre>
+              <pre>
+                <code>php composer
+                  <span class="class">.phar</span> install
+                </code>
+              </pre>
               <p>cd /vender/phalcon/devtools以下のphalcon.shを実行</p>
-              <pre><code>ln -s <span class="regexp">~/devtools/</span>phalcon.php <span class="regexp">/usr/</span>bin/phalcon
-chmod ugo+x <span class="regexp">/usr/</span>bin/phalcon
-</code></pre>
+              <pre>
+                <code>ln -s
+                  <span class="regexp">~/devtools/</span>phalcon.php
+                  <span class="regexp">/usr/</span>bin/phalcon chmod ugo+x
+                  <span class="regexp">/usr/</span>bin/phalcon
+                </code>
+              </pre>
               <p>phalconとコマンドを打って、</p>
-              <pre><code><span class="comment"># phalcon</span>
+              <pre>
+                <code>
+                  <span class="comment"># phalcon</span>
 
-Phalcon DevTools (<span class="number">1.2</span><span class="number">.4</span>)
-
-Available commands:
-  commands (<span class="built_in">alias</span> <span class="operator">of</span>: list, enumerate)
-  controller (<span class="built_in">alias</span> <span class="operator">of</span>: <span class="built_in">create</span>-controller)
-  model (<span class="built_in">alias</span> <span class="operator">of</span>: <span class="built_in">create</span>-model)
-  all-models (<span class="built_in">alias</span> <span class="operator">of</span>: <span class="built_in">create</span>-all-models)
-  project (<span class="built_in">alias</span> <span class="operator">of</span>: <span class="built_in">create</span>-project)
-  scaffold
-  migration
-  webtools
-</code></pre>
+                  Phalcon DevTools (
+                  <span class="number">1.2</span>
+                  <span class="number">.4</span>) Available commands: commands (
+                  <span class="built_in">alias</span>
+                  <span class="operator">of</span>: list, enumerate) controller (
+                  <span class="built_in">alias</span>
+                  <span class="operator">of</span>:
+                  <span class="built_in">create</span>-controller) model (
+                  <span class="built_in">alias</span>
+                  <span class="operator">of</span>:
+                  <span class="built_in">create</span>-model) all-models (
+                  <span class="built_in">alias</span>
+                  <span class="operator">of</span>:
+                  <span class="built_in">create</span>-all-models) project (
+                  <span class="built_in">alias</span>
+                  <span class="operator">of</span>:
+                  <span class="built_in">create</span>-project) scaffold migration webtools
+                </code>
+              </pre>
               <p>と表示されればPhalconのインストールは完了！</p>
 
             </div>
             <footer>
 
-
-
-
               <div class="clearfix"></div>
             </footer>
           </div>
         </article>
+
         <div class="clearfix"></div>
 
         <article class="post">
@@ -196,15 +262,23 @@ Available commands:
             <header>
 
               <div class="icon"></div>
-              <time datetime="2015-10-14T13:47:57.000Z"><a href="/install-phalcon-with-chef-solo/">2015-10-14</a></time>
+              <time datetime="2015-10-14T13:47:57.000Z">
+                <a href="/install-phalcon-with-chef-solo/">2015-10-14</a>
+              </time>
 
-              <h1 class="title"><a href="/install-phalcon-with-chef-solo/">爆速PhalconをChef-soloで爆速インストール（Vagrant編）</a></h1>
+              <h1 class="title">
+
+                <a href="/install-phalcon-with-chef-solo/">爆速PhalconをChef-soloで爆速インストール（Vagrant編）</a>
+              </h1>
+
             </header>
             <div class="entry">
 
               <p>コア部分がC言語で記述されているがゆえ爆速に動作するPhalcon。
                 <br>これを爆速で動作できる環境をつくるために、Chefレシピを用意しました。</p>
-              <p><a href="https://github.com/aiMatz/cookbook-phalcon" target="_blank" rel="external">https://github.com/aiMatz/cookbook-phalcon</a></p>
+              <p>
+                <a href="https://github.com/aiMatz/cookbook-phalcon" target="_blank" rel="external">https://github.com/aiMatz/cookbook-phalcon</a>
+              </p>
               <p>Phalconを動かすまで意外と道のりがありまして、
                 <br>非常に手間なのでChefでやるのがベターですね。</p>
               <p>ここ最近は、vagrantが出てきたこともあって、
@@ -215,76 +289,107 @@ Available commands:
               <p>vagrantのインストールは、ググってくだされ(・ω・)</p>
               <h3 id="vagrant_box（OSイメージ）の取得">vagrant box（OSイメージ）の取得</h3>
               <p>Boxイメージは何でもOKですが、CentOS 6.5を使用してみた。</p>
-              <pre><code><span class="comment">// Macのターミナル</span>
-vagrant <span class="built_in">box</span> <span class="built_in">add</span> <span class="string">"CentOS 6.5 x86_64"</span> https:<span class="comment">//github.com/2creatives/vagrant-centos/releases/download/v6.5.3/centos65-x86_64-20140116.box</span>
+              <pre>
+                <code>
+                  <span class="comment">// Macのターミナル</span>
+                  vagrant
+                  <span class="built_in">box</span>
+                  <span class="built_in">add</span>
+                  <span class="string">"CentOS 6.5 x86_64"</span> https:
+                  <span class="comment">//github.com/2creatives/vagrant-centos/releases/download/v6.5.3/centos65-x86_64-20140116.box</span>
 
+                  vagrant init
+                  <span class="string">"CentOS 6.5 x86_64"</span>
 
-vagrant init <span class="string">"CentOS 6.5 x86_64"</span>
+                  <span class="comment">// vagrant起動！</span>
+                  vagrant up
 
-<span class="comment">// vagrant起動！</span>
-vagrant up
+                  <span class="comment">// vagrantにSSH接続ができるように設定</span>
+                  vagrant ssh-config --host vagrant &gt;&gt; ~/.ssh/config
 
+                  <span class="comment">// vagrantに接続できることを確認</span>
+                  ssh vagrant
 
-<span class="comment">// vagrantにSSH接続ができるように設定</span>
-vagrant ssh-config --host vagrant &gt;&gt; ~/.ssh/config
-
-<span class="comment">// vagrantに接続できることを確認</span>
-ssh vagrant
-
-<span class="built_in">exit</span>
-</code></pre>
-              <p>※boxのイメージは、<a href="http://www.vagrantbox.es/" target="_blank" rel="external">http://www.vagrantbox.es/</a>とかにたくさんあります。</p>
+                  <span class="built_in">exit</span>
+                </code>
+              </pre>
+              <p>※boxのイメージは、
+                <a href="http://www.vagrantbox.es/" target="_blank" rel="external">http://www.vagrantbox.es/</a>とかにたくさんあります。</p>
               <h3 id="knife-soloのインストール">knife-soloのインストール</h3>
               <p>knife-soloをインストールすると一式がインストールされるかと</p>
-              <pre><code><span class="comment">// Macのターミナル</span>
-gem <span class="tag">i</span> knife-solo
-</code></pre>
+              <pre>
+                <code>
+                  <span class="comment">// Macのターミナル</span>
+                  gem
+                  <span class="tag">i</span> knife-solo
+                </code>
+              </pre>
               <h3 id="chef_cookbookの準備">chef cookbookの準備</h3>
               <p>knife-soloでリポジトリを作成</p>
-              <pre><code><span class="comment">// Macのターミナル</span>
-knife solo <span class="keyword">init</span> chef-repository
-</code></pre>
+              <pre>
+                <code>
+                  <span class="comment">// Macのターミナル</span>
+                  knife solo
+                  <span class="keyword">init</span> chef-repository
+                </code>
+              </pre>
               <p>phalconインストール用のcookbookをダウンロード</p>
-              <pre><code><span class="comment">// Macのターミナル</span>
-git clone <span class="string">https:</span><span class="comment">//github.com/aiMatz/cookbook-phalcon chef-repository/site-cookbooks/phalcon</span>
+              <pre>
+                <code>
+                  <span class="comment">// Macのターミナル</span>
+                  git clone
+                  <span class="string">https:</span>
+                  <span class="comment">//github.com/aiMatz/cookbook-phalcon chef-repository/site-cookbooks/phalcon</span>
 
-cd chef-repository 
-</code></pre>
+                  cd chef-repository
+                </code>
+              </pre>
               <p>ここでvagrantのイメージにChefをインストール。</p>
-              <pre><code><span class="comment">// Macのターミナル</span>
-knife solo prepare vagrant
-</code></pre>
-              <p>実行後、<code>node/default.rb</code>が作成されます。
+              <pre>
+                <code>
+                  <span class="comment">// Macのターミナル</span>
+                  knife solo prepare vagrant
+                </code>
+              </pre>
+              <p>実行後、
+                <code>node/default.rb</code>が作成されます。
                 <br>recipe[phalcon]をrun_listに追加します。</p>
-              <pre><code><span class="comment">// Macのターミナル</span>
-vi node/<span class="keyword">default</span>.rb
+              <pre>
+                <code>
+                  <span class="comment">// Macのターミナル</span>
+                  vi node/
+                  <span class="keyword">default</span>.rb
 
-<span class="preprocessor"># {<span class="string">"run_list"</span>: [</span>
-    <span class="string">"recipe[phalcon]"</span>
-    ]
-  }
-</code></pre>
+                  <span class="preprocessor"># {
+                    <span class="string">"run_list"</span>: [</span>
+                  <span class="string">"recipe[phalcon]"</span>
+                  ] }
+                </code>
+              </pre>
               <p>準備ができたので、料理開始！！</p>
-              <pre><code><span class="comment">// Macのターミナル</span>
-knife solo cook vagrant
-</code></pre>
+              <pre>
+                <code>
+                  <span class="comment">// Macのターミナル</span>
+                  knife solo cook vagrant
+                </code>
+              </pre>
               <p>諸々のインストールが進んでいくはずです。
                 <br>完了したら、SSHログインして</p>
-              <pre><code>phalcon
-</code></pre>
+              <pre>
+                <code>phalcon
+                </code>
+              </pre>
               <p>とコマンドを打って、phalcon devtoolsの説明が表示されればインストールが完了です。</p>
               <p>Enjoy Phalcon!!</p>
 
             </div>
             <footer>
 
-
-
-
               <div class="clearfix"></div>
             </footer>
           </div>
         </article>
+
         <div class="clearfix"></div>
 
         <article class="post">
@@ -293,54 +398,82 @@ knife solo cook vagrant
             <header>
 
               <div class="icon"></div>
-              <time datetime="2015-10-14T13:46:39.000Z"><a href="/install-phalcon-with-berkshelf/">2015-10-14</a></time>
+              <time datetime="2015-10-14T13:46:39.000Z">
+                <a href="/install-phalcon-with-berkshelf/">2015-10-14</a>
+              </time>
 
-              <h1 class="title"><a href="/install-phalcon-with-berkshelf/">爆速Phalconの環境をBerkshelfで爆速インストール</a></h1>
+              <h1 class="title">
+
+                <a href="/install-phalcon-with-berkshelf/">爆速Phalconの環境をBerkshelfで爆速インストール</a>
+              </h1>
+
             </header>
             <div class="entry">
 
               <p>前回Chef-soloのcookbookを手動でgit cloneする形でインストールしていたのですが
                 <br>Berkshelfを使うとその手間も省けて、より爆速に環境がインストールできますね。</p>
-              <p>今回はまっさらなvagrantが既に<code>vagrant up</code>されている状態という前提から
+              <p>今回はまっさらなvagrantが既に
+                <code>vagrant up</code>されている状態という前提から
                 <br>説明をスタートします。</p>
               <h3 id="Chefリポジトリの作成">Chefリポジトリの作成</h3>
               <p>まずはChefリポジトリを作成します。</p>
-              <pre><code><span class="title">knife</span> solo init ./chef-repository
-</code></pre>
-              <p>作成されたフォルダの中に<code>Berksfile</code>というファイルができているので編集します。</p>
-              <pre><code><span class="label">cd</span> chef-repository
-<span class="label">vi</span> <span class="keyword">Berksfile </span>
+              <pre>
+                <code>
+                  <span class="title">knife</span> solo init ./chef-repository
+                </code>
+              </pre>
+              <p>作成されたフォルダの中に
+                <code>Berksfile</code>というファイルができているので編集します。</p>
+              <pre>
+                <code>
+                  <span class="label">cd</span> chef-repository
+                  <span class="label">vi</span>
+                  <span class="keyword">Berksfile </span>
 
-// 以下を追記します
-# cookbook <span class="string">"phalcon"</span>, git: <span class="string">"https://github.com/aiMatz/cookbook-phalcon.git"</span>, <span class="keyword">branch: </span><span class="string">"master"</span>
-</code></pre>
+                  // 以下を追記します # cookbook
+                  <span class="string">"phalcon"</span>, git:
+                  <span class="string">"https://github.com/aiMatz/cookbook-phalcon.git"</span>,
+                  <span class="keyword">branch: </span>
+                  <span class="string">"master"</span>
+                </code>
+              </pre>
               <h3 id="Berkshelfでcookbookをダウンロード">Berkshelfでcookbookをダウンロード</h3>
               <p>Berksfileと同じディレクトリで以下のコマンドを実行します。</p>
-              <pre><code><span class="keyword">berks </span>vendor
-</code></pre>
+              <pre>
+                <code>
+                  <span class="keyword">berks </span>vendor
+                </code>
+              </pre>
               <p>すると、berks-cookbooksというフォルダが作成され、その中にphalconフォルダが作成されます。
                 <br>この中身は、githubからダウンロードしたcookbookになるわけですね。</p>
-              <p>続けて、<code>node/vagrant.localhost</code>のrun_listに<code>recipe[phalcon]</code>を追加します。</p>
+              <p>続けて、
+                <code>node/vagrant.localhost</code>のrun_listに
+                <code>recipe[phalcon]</code>を追加します。</p>
               <h3 id="knife-soloの実行">knife-soloの実行</h3>
-              <p>現状、まだvagrantのBOXには<code>knife solo prepare vagrant</code>のコマンドを実行していないため
+              <p>現状、まだvagrantのBOXには
+                <code>knife solo prepare vagrant</code>のコマンドを実行していないため
                 <br>Chefがインストールされていない状態です。</p>
               <p>Chefがインストールされていない状態でも実行するためには、</p>
-              <pre><code><span class="label">knife</span> solo <span class="keyword">bootstrap </span>vagrant 
-</code></pre>
+              <pre>
+                <code>
+                  <span class="label">knife</span> solo
+                  <span class="keyword">bootstrap </span>vagrant
+                </code>
+              </pre>
               <p>を実行すると、一時的にChefのインストールとCookbookの実行を同時に行ってくれるので便利です。
-                <br>ただ、再度<code>knife solo cook vagrant</code>をしようとすると、Chefがインストールされていないと怒られるので、
-                <br>予め、<code>knife solo prepare vagrant</code>を実行しておくことをおすすめします。</p>
+                <br>ただ、再度
+                <code>knife solo cook vagrant</code>をしようとすると、Chefがインストールされていないと怒られるので、
+                <br>予め、
+                <code>knife solo prepare vagrant</code>を実行しておくことをおすすめします。</p>
 
             </div>
             <footer>
-
-
-
 
               <div class="clearfix"></div>
             </footer>
           </div>
         </article>
+
         <div class="clearfix"></div>
 
         <article class="post">
@@ -349,9 +482,15 @@ knife solo cook vagrant
             <header>
 
               <div class="icon"></div>
-              <time datetime="2015-10-14T13:43:26.000Z"><a href="/startup-parallels-desktop/">2015-10-14</a></time>
+              <time datetime="2015-10-14T13:43:26.000Z">
+                <a href="/startup-parallels-desktop/">2015-10-14</a>
+              </time>
 
-              <h1 class="title"><a href="/startup-parallels-desktop/">Mac御用達のParallelsDesktopを使ってVagrantを起動する</a></h1>
+              <h1 class="title">
+
+                <a href="/startup-parallels-desktop/">Mac御用達のParallelsDesktopを使ってVagrantを起動する</a>
+              </h1>
+
             </header>
             <div class="entry">
 
@@ -378,7 +517,8 @@ knife solo cook vagrant
               <h3 id="デメリット">デメリット</h3>
               <ul>
                 <li>対応しているBoxが少ない
-                  <br>[<a href="https://vagrantcloud.com/search?provider=parallels" target="_blank" rel="external">https://vagrantcloud.com/search?provider=parallels</a>]
+                  <br>[
+                  <a href="https://vagrantcloud.com/search?provider=parallels" target="_blank" rel="external">https://vagrantcloud.com/search?provider=parallels</a>]
                   <br>（古いバージョンのOSなどには対応していないようです）</li>
               </ul>
               <p>※ ほかにも何かあったら教えてください</p>
@@ -393,14 +533,32 @@ knife solo cook vagrant
                 </li>
                 <li>
                   <p>vagrantがすでに動作できる状態にある
-                    <br><code>vagrant -v</code>するとvagrantのバージョンが表示されること </p>
+                    <br>
+                    <code>vagrant -v</code>するとvagrantのバージョンが表示されること </p>
                 </li>
               </ul>
               <figure class="highlight cpp">
                 <table>
                   <tr>
-                    <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td>
-                    <td class="code"><pre><span class="line">$ vagrant -v  </span><br><span class="line">Vagrant <span class="number">1.6</span><span class="number">.5</span></span><br></pre></td>
+                    <td class="gutter">
+                      <pre>
+                        <span class="line">1</span>
+                        <br>
+                        <span class="line">2</span>
+                        <br>
+                      </pre>
+                    </td>
+                    <td class="code">
+                      <pre>
+                        <span class="line">$ vagrant -v </span>
+                        <br>
+                        <span class="line">Vagrant
+                          <span class="number">1.6</span>
+                          <span class="number">.5</span>
+                        </span>
+                        <br>
+                      </pre>
+                    </td>
                   </tr>
                 </table>
               </figure>
@@ -412,8 +570,19 @@ knife solo cook vagrant
               <figure class="highlight cmake">
                 <table>
                   <tr>
-                    <td class="gutter"><pre><span class="line">1</span><br></pre></td>
-                    <td class="code"><pre><span class="line">$ vagrant plugin <span class="keyword">install</span> vagrant-parallels</span><br></pre></td>
+                    <td class="gutter">
+                      <pre>
+                        <span class="line">1</span>
+                        <br>
+                      </pre>
+                    </td>
+                    <td class="code">
+                      <pre>
+                        <span class="line">$ vagrant plugin
+                          <span class="keyword">install</span> vagrant-parallels</span>
+                        <br>
+                      </pre>
+                    </td>
                   </tr>
                 </table>
               </figure>
@@ -423,36 +592,71 @@ knife solo cook vagrant
               <figure class="highlight bash">
                 <table>
                   <tr>
-                    <td class="gutter"><pre><span class="line">1</span><br></pre></td>
-                    <td class="code"><pre><span class="line"><span class="built_in">export</span> VAGRANT_DEFAULT_PROVIDER=parallels</span><br></pre></td>
+                    <td class="gutter">
+                      <pre>
+                        <span class="line">1</span>
+                        <br>
+                      </pre>
+                    </td>
+                    <td class="code">
+                      <pre>
+                        <span class="line">
+                          <span class="built_in">export</span> VAGRANT_DEFAULT_PROVIDER=parallels</span>
+                        <br>
+                      </pre>
+                    </td>
                   </tr>
                 </table>
               </figure>
-              <p>コマンドラインから<code>echo VAGRANT_DEFAULT_PROVIDER</code>して<code>parallels</code>が表示されればOK</p>
+              <p>コマンドラインから
+                <code>echo VAGRANT_DEFAULT_PROVIDER</code>して
+                <code>parallels</code>が表示されればOK</p>
               <h4 id="CentOS6-5をインストールする">CentOS6.5をインストールする</h4>
               <p>Macのターミナルから以下のコマンドを実行します。</p>
               <figure class="highlight cpp">
                 <table>
                   <tr>
-                    <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td>
-                    <td class="code"><pre><span class="line">cd ~/vagrant/centos-<span class="number">6.5</span> <span class="comment">// お好きなディレクトリでどうぞ</span></span><br><span class="line">vagrant init parallels/centos-<span class="number">6.5</span></span><br><span class="line">vagrant up</span><br></pre></td>
+                    <td class="gutter">
+                      <pre>
+                        <span class="line">1</span>
+                        <br>
+                        <span class="line">2</span>
+                        <br>
+                        <span class="line">3</span>
+                        <br>
+                      </pre>
+                    </td>
+                    <td class="code">
+                      <pre>
+                        <span class="line">cd ~/vagrant/centos-
+                          <span class="number">6.5</span>
+                          <span class="comment">// お好きなディレクトリでどうぞ</span>
+                        </span>
+                        <br>
+                        <span class="line">vagrant init parallels/centos-
+                          <span class="number">6.5</span>
+                        </span>
+                        <br>
+                        <span class="line">vagrant up</span>
+                        <br>
+                      </pre>
+                    </td>
                   </tr>
                 </table>
               </figure>
-              <p><code>default: Machine booted and ready!</code>と出れば正常に起動成功！</p>
+              <p>
+                <code>default: Machine booted and ready!</code>と出れば正常に起動成功！</p>
               <p>これでParallelsDesktopを使った起動ができました。
                 <br>Enjoy Vagrant running on ParallelsDesktop!</p>
 
             </div>
             <footer>
 
-
-
-
               <div class="clearfix"></div>
             </footer>
           </div>
         </article>
+
         <div class="clearfix"></div>
 
         <article class="post">
@@ -461,9 +665,15 @@ knife solo cook vagrant
             <header>
 
               <div class="icon"></div>
-              <time datetime="2015-10-14T13:40:30.000Z"><a href="/update-vagrant/">2015-10-14</a></time>
+              <time datetime="2015-10-14T13:40:30.000Z">
+                <a href="/update-vagrant/">2015-10-14</a>
+              </time>
 
-              <h1 class="title"><a href="/update-vagrant/">VagrantのBoxをアップデートする</a></h1>
+              <h1 class="title">
+
+                <a href="/update-vagrant/">VagrantのBoxをアップデートする</a>
+              </h1>
+
             </header>
             <div class="entry">
 
@@ -473,8 +683,19 @@ knife solo cook vagrant
               <figure class="highlight armasm">
                 <table>
                   <tr>
-                    <td class="gutter"><pre><span class="line">1</span><br></pre></td>
-                    <td class="code"><pre><span class="line">$ vagrant <span class="keyword">box </span>update</span><br></pre></td>
+                    <td class="gutter">
+                      <pre>
+                        <span class="line">1</span>
+                        <br>
+                      </pre>
+                    </td>
+                    <td class="code">
+                      <pre>
+                        <span class="line">$ vagrant
+                          <span class="keyword">box </span>update</span>
+                        <br>
+                      </pre>
+                    </td>
                   </tr>
                 </table>
               </figure>
@@ -484,8 +705,20 @@ knife solo cook vagrant
               <figure class="highlight applescript">
                 <table>
                   <tr>
-                    <td class="gutter"><pre><span class="line">1</span><br></pre></td>
-                    <td class="code"><pre><span class="line">$ vagrant box <span class="type">list</span></span><br></pre></td>
+                    <td class="gutter">
+                      <pre>
+                        <span class="line">1</span>
+                        <br>
+                      </pre>
+                    </td>
+                    <td class="code">
+                      <pre>
+                        <span class="line">$ vagrant box
+                          <span class="type">list</span>
+                        </span>
+                        <br>
+                      </pre>
+                    </td>
                   </tr>
                 </table>
               </figure>
@@ -494,8 +727,28 @@ knife solo cook vagrant
               <figure class="highlight cpp">
                 <table>
                   <tr>
-                    <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td>
-                    <td class="code"><pre><span class="line">parallels/centos-<span class="number">6.5</span> (parallels, <span class="number">0.2</span><span class="number">.0</span>)</span><br><span class="line">parallels/centos-<span class="number">6.5</span> (parallels, <span class="number">1.0</span><span class="number">.0</span>)</span><br></pre></td>
+                    <td class="gutter">
+                      <pre>
+                        <span class="line">1</span>
+                        <br>
+                        <span class="line">2</span>
+                        <br>
+                      </pre>
+                    </td>
+                    <td class="code">
+                      <pre>
+                        <span class="line">parallels/centos-
+                          <span class="number">6.5</span> (parallels,
+                          <span class="number">0.2</span>
+                          <span class="number">.0</span>)</span>
+                        <br>
+                        <span class="line">parallels/centos-
+                          <span class="number">6.5</span> (parallels,
+                          <span class="number">1.0</span>
+                          <span class="number">.0</span>)</span>
+                        <br>
+                      </pre>
+                    </td>
                   </tr>
                 </table>
               </figure>
@@ -504,8 +757,22 @@ knife solo cook vagrant
               <figure class="highlight armasm">
                 <table>
                   <tr>
-                    <td class="gutter"><pre><span class="line">1</span><br></pre></td>
-                    <td class="code"><pre><span class="line">$ vagrant <span class="keyword">box </span>remove &#123;<span class="keyword">box_name&#125; </span>--provider &#123;PROVIDER_NAME&#125; --<span class="keyword">box-version </span>VERSION</span><br></pre></td>
+                    <td class="gutter">
+                      <pre>
+                        <span class="line">1</span>
+                        <br>
+                      </pre>
+                    </td>
+                    <td class="code">
+                      <pre>
+                        <span class="line">$ vagrant
+                          <span class="keyword">box </span>remove &#123;
+                          <span class="keyword">box_name&#125; </span>--provider &#123;PROVIDER_NAME&#125;
+                          --
+                          <span class="keyword">box-version </span>VERSION</span>
+                        <br>
+                      </pre>
+                    </td>
                   </tr>
                 </table>
               </figure>
@@ -513,23 +780,36 @@ knife solo cook vagrant
               <figure class="highlight cpp">
                 <table>
                   <tr>
-                    <td class="gutter"><pre><span class="line">1</span><br></pre></td>
-                    <td class="code"><pre><span class="line">$ vagrant box remove parallels/centos-<span class="number">6.5</span>  --box-version <span class="number">0.2</span><span class="number">.0</span></span><br></pre></td>
+                    <td class="gutter">
+                      <pre>
+                        <span class="line">1</span>
+                        <br>
+                      </pre>
+                    </td>
+                    <td class="code">
+                      <pre>
+                        <span class="line">$ vagrant box remove parallels/centos-
+                          <span class="number">6.5</span> --box-version
+                          <span class="number">0.2</span>
+                          <span class="number">.0</span>
+                        </span>
+                        <br>
+                      </pre>
+                    </td>
                   </tr>
                 </table>
               </figure>
-              <p>再度、<code>vagrant box list</code>するとバージョン0.2.0のBoxが削除できていることを確認できます。</p>
+              <p>再度、
+                <code>vagrant box list</code>するとバージョン0.2.0のBoxが削除できていることを確認できます。</p>
 
             </div>
             <footer>
-
-
-
 
               <div class="clearfix"></div>
             </footer>
           </div>
         </article>
+
         <div class="clearfix"></div>
 
         <article class="post">
@@ -538,9 +818,15 @@ knife solo cook vagrant
             <header>
 
               <div class="icon"></div>
-              <time datetime="2015-10-10T00:58:08.000Z"><a href="/rereview_phalcon/">2015-10-10</a></time>
+              <time datetime="2015-10-10T00:58:08.000Z">
+                <a href="/rereview_phalcon/">2015-10-10</a>
+              </time>
 
-              <h1 class="title"><a href="/rereview_phalcon/">Phalconが評判になってきたから、動作環境構築のおさらいでもしようか</a></h1>
+              <h1 class="title">
+
+                <a href="/rereview_phalcon/">Phalconが評判になってきたから、動作環境構築のおさらいでもしようか</a>
+              </h1>
+
             </header>
             <div class="entry">
 
@@ -550,7 +836,9 @@ knife solo cook vagrant
               <p>AWSのmicroインスタンスでさえHello Worldのechoソースだけで200req/secは確保できます。</p>
               <p>他のフレームワークと比較しても差は歴然。</p>
               <p>PHPの開発のやりやすさと、処理性能を求めるならはっきりいって現段階でPhalcon以外の選択肢が見当たりません。</p>
-              <p>[<a href="https://docs.phalconphp.com/ja/latest/reference/benchmark/hello-world.html:title" target="_blank" rel="external">https://docs.phalconphp.com/ja/latest/reference/benchmark/hello-world.html:title</a>]</p>
+              <p>[
+                <a href="https://docs.phalconphp.com/ja/latest/reference/benchmark/hello-world.html:title"
+                target="_blank" rel="external">https://docs.phalconphp.com/ja/latest/reference/benchmark/hello-world.html:title</a>]</p>
               <p>さて、Phalconもバージョン2がリリースされて、以前に残しておいた手順も古くなってきたので手順書2015 Ver.を公開しようと思います。</p>
               <p>（手順書ってどうしても古くなってしまいますよね。。）</p>
               <p>今回はローカル開発に構築簡単なVagrantfileを記載しておきます。</p>
@@ -562,8 +850,221 @@ knife solo cook vagrant
               <figure class="highlight stata">
                 <table>
                   <tr>
-                    <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td>
-                    <td class="code"><pre><span class="line"># -*- mode: ruby -*-</span><br><span class="line"># vi: <span class="keyword">set</span> ft=ruby :</span><br><span class="line"></span><br><span class="line"><span class="label">$script</span> = &lt;&lt;SCRIPT</span><br><span class="line">  yum <span class="keyword">update</span> -<span class="literal">y</span></span><br><span class="line">  rpm --import http:<span class="comment">//dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6</span></span><br><span class="line">  rpm -<span class="keyword">U</span> http:<span class="comment">//dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/epel-release-6-5.noarch.rpm</span></span><br><span class="line">  rpm --import http:<span class="comment">//mirror.its.dal.ca/ius/IUS-COMMUNITY-GPG-KEY</span></span><br><span class="line">  rpm -<span class="keyword">U</span> http:<span class="comment">//dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-14.ius.centos6.noarch.rpm</span></span><br><span class="line">  rpm -<span class="keyword">U</span> http:<span class="comment">//nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm</span></span><br><span class="line">  yum install -y git gcc make vim htop tree <span class="keyword">zip</span> unzip \</span><br><span class="line">  nginx redis30u \</span><br><span class="line">  pcre-devel php56u php56u-devel php56u-pdo php56u-mysql php56u-fpm php56u-pecl-redis</span><br><span class="line"></span><br><span class="line">  # Install Phalcon</span><br><span class="line">  <span class="keyword">if</span> [ ! -f /etc/php.<span class="keyword">d</span>/phalcon.ini ]; then</span><br><span class="line">    <span class="keyword">cd</span> /usr/<span class="keyword">local</span>/src</span><br><span class="line">    git clone --<span class="keyword">no</span>-<span class="keyword">local</span> git:<span class="comment">//github.com/phalcon/cphalcon.git</span></span><br><span class="line">    <span class="keyword">cd</span> cphalcon/build</span><br><span class="line">    ./install</span><br><span class="line">    echo <span class="string">"extension = phalcon.so"</span> &gt; /etc/php.<span class="keyword">d</span>/phalcon.ini</span><br><span class="line">  fi</span><br><span class="line"></span><br><span class="line">  service nginx start</span><br><span class="line">  service php-fpm start</span><br><span class="line">SCRIPT</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Vagrant.configure(<span class="string">"2"</span>) <span class="keyword">do</span> |config|</span><br><span class="line">  config.vm.hostname = <span class="string">"phalcon-service"</span></span><br><span class="line">  config.vm.box = <span class="string">"parallels/centos-6.6"</span></span><br><span class="line"></span><br><span class="line">  config.vm.box_check_update = true</span><br><span class="line"></span><br><span class="line">  config.vm.provision <span class="string">"shell"</span>, inline: <span class="label">$script</span></span><br><span class="line"></span><br><span class="line">  config.vm.provider <span class="string">"parallels"</span> <span class="keyword">do</span> |v|</span><br><span class="line">    v.update_guest_tools = true</span><br><span class="line">    v.optimize_power_consumption = true</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td>
+                    <td class="gutter">
+                      <pre>
+                        <span class="line">1</span>
+                        <br>
+                        <span class="line">2</span>
+                        <br>
+                        <span class="line">3</span>
+                        <br>
+                        <span class="line">4</span>
+                        <br>
+                        <span class="line">5</span>
+                        <br>
+                        <span class="line">6</span>
+                        <br>
+                        <span class="line">7</span>
+                        <br>
+                        <span class="line">8</span>
+                        <br>
+                        <span class="line">9</span>
+                        <br>
+                        <span class="line">10</span>
+                        <br>
+                        <span class="line">11</span>
+                        <br>
+                        <span class="line">12</span>
+                        <br>
+                        <span class="line">13</span>
+                        <br>
+                        <span class="line">14</span>
+                        <br>
+                        <span class="line">15</span>
+                        <br>
+                        <span class="line">16</span>
+                        <br>
+                        <span class="line">17</span>
+                        <br>
+                        <span class="line">18</span>
+                        <br>
+                        <span class="line">19</span>
+                        <br>
+                        <span class="line">20</span>
+                        <br>
+                        <span class="line">21</span>
+                        <br>
+                        <span class="line">22</span>
+                        <br>
+                        <span class="line">23</span>
+                        <br>
+                        <span class="line">24</span>
+                        <br>
+                        <span class="line">25</span>
+                        <br>
+                        <span class="line">26</span>
+                        <br>
+                        <span class="line">27</span>
+                        <br>
+                        <span class="line">28</span>
+                        <br>
+                        <span class="line">29</span>
+                        <br>
+                        <span class="line">30</span>
+                        <br>
+                        <span class="line">31</span>
+                        <br>
+                        <span class="line">32</span>
+                        <br>
+                        <span class="line">33</span>
+                        <br>
+                        <span class="line">34</span>
+                        <br>
+                        <span class="line">35</span>
+                        <br>
+                        <span class="line">36</span>
+                        <br>
+                        <span class="line">37</span>
+                        <br>
+                        <span class="line">38</span>
+                        <br>
+                        <span class="line">39</span>
+                        <br>
+                        <span class="line">40</span>
+                        <br>
+                        <span class="line">41</span>
+                        <br>
+                      </pre>
+                    </td>
+                    <td class="code">
+                      <pre>
+                        <span class="line"># -*- mode: ruby -*-</span>
+                        <br>
+                        <span class="line"># vi:
+                          <span class="keyword">set</span> ft=ruby :</span>
+                        <br>
+                        <span class="line"></span>
+                        <br>
+                        <span class="line">
+                          <span class="label">$script</span> = &lt;&lt;SCRIPT</span>
+                        <br>
+                        <span class="line"> yum
+                          <span class="keyword">update</span> -
+                          <span class="literal">y</span>
+                        </span>
+                        <br>
+                        <span class="line"> rpm --import http:
+                          <span class="comment">//dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6</span>
+                        </span>
+                        <br>
+                        <span class="line"> rpm -
+                          <span class="keyword">U</span> http:
+                          <span class="comment">//dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/epel-release-6-5.noarch.rpm</span>
+                        </span>
+                        <br>
+                        <span class="line"> rpm --import http:
+                          <span class="comment">//mirror.its.dal.ca/ius/IUS-COMMUNITY-GPG-KEY</span>
+                        </span>
+                        <br>
+                        <span class="line"> rpm -
+                          <span class="keyword">U</span> http:
+                          <span class="comment">//dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-14.ius.centos6.noarch.rpm</span>
+                        </span>
+                        <br>
+                        <span class="line"> rpm -
+                          <span class="keyword">U</span> http:
+                          <span class="comment">//nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm</span>
+                        </span>
+                        <br>
+                        <span class="line"> yum install -y git gcc make vim htop tree
+                          <span class="keyword">zip</span> unzip \</span>
+                        <br>
+                        <span class="line"> nginx redis30u \</span>
+                        <br>
+                        <span class="line"> pcre-devel php56u php56u-devel php56u-pdo php56u-mysql php56u-fpm
+                          php56u-pecl-redis
+                        </span>
+                        <br>
+                        <span class="line"></span>
+                        <br>
+                        <span class="line"> # Install Phalcon</span>
+                        <br>
+                        <span class="line">
+                          <span class="keyword">if</span> [ ! -f /etc/php.
+                          <span class="keyword">d</span>/phalcon.ini ]; then</span>
+                        <br>
+                        <span class="line">
+                          <span class="keyword">cd</span> /usr/
+                          <span class="keyword">local</span>/src</span>
+                        <br>
+                        <span class="line"> git clone --
+                          <span class="keyword">no</span>-
+                          <span class="keyword">local</span> git:
+                          <span class="comment">//github.com/phalcon/cphalcon.git</span>
+                        </span>
+                        <br>
+                        <span class="line">
+                          <span class="keyword">cd</span> cphalcon/build</span>
+                        <br>
+                        <span class="line"> ./install</span>
+                        <br>
+                        <span class="line"> echo
+                          <span class="string">"extension = phalcon.so"</span> &gt; /etc/php.
+                          <span class="keyword">d</span>/phalcon.ini</span>
+                        <br>
+                        <span class="line"> fi</span>
+                        <br>
+                        <span class="line"></span>
+                        <br>
+                        <span class="line"> service nginx start</span>
+                        <br>
+                        <span class="line"> service php-fpm start</span>
+                        <br>
+                        <span class="line">SCRIPT</span>
+                        <br>
+                        <span class="line"></span>
+                        <br>
+                        <span class="line"></span>
+                        <br>
+                        <span class="line">Vagrant.configure(
+                          <span class="string">"2"</span>)
+                          <span class="keyword">do</span> |config|</span>
+                        <br>
+                        <span class="line"> config.vm.hostname =
+                          <span class="string">"phalcon-service"</span>
+                        </span>
+                        <br>
+                        <span class="line"> config.vm.box =
+                          <span class="string">"parallels/centos-6.6"</span>
+                        </span>
+                        <br>
+                        <span class="line"></span>
+                        <br>
+                        <span class="line"> config.vm.box_check_update = true</span>
+                        <br>
+                        <span class="line"></span>
+                        <br>
+                        <span class="line"> config.vm.provision
+                          <span class="string">"shell"</span>, inline:
+                          <span class="label">$script</span>
+                        </span>
+                        <br>
+                        <span class="line"></span>
+                        <br>
+                        <span class="line"> config.vm.provider
+                          <span class="string">"parallels"</span>
+                          <span class="keyword">do</span> |v|</span>
+                        <br>
+                        <span class="line"> v.update_guest_tools = true</span>
+                        <br>
+                        <span class="line"> v.optimize_power_consumption = true</span>
+                        <br>
+                        <span class="line"> end</span>
+                        <br>
+                        <span class="line">end</span>
+                        <br>
+                      </pre>
+                    </td>
                   </tr>
                 </table>
               </figure>
@@ -571,18 +1072,14 @@ knife solo cook vagrant
             </div>
             <footer>
 
-
-
-
               <div class="clearfix"></div>
             </footer>
           </div>
         </article>
+
         <div class="clearfix"></div>
 
-
         <nav id="pagination">
-
 
           <div class="clearfix"></div>
         </nav>
@@ -596,51 +1093,89 @@ knife solo cook vagrant
         </form>
       </div>
 
-
-
       <div class="widget tag">
         <h3 class="title">Tags</h3>
         <ul class="entry">
 
-          <li><a href="/tags/Berkshelf/">Berkshelf</a><small>1</small></li>
+          <li>
+            <a href="/tags/Berkshelf/">Berkshelf</a>
+            <small>1</small>
+          </li>
 
-          <li><a href="/tags/Chef-Solo/">Chef Solo</a><small>2</small></li>
+          <li>
+            <a href="/tags/Chef-Solo/">Chef Solo</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/Docker/">Docker</a><small>1</small></li>
+          <li>
+            <a href="/tags/Docker/">Docker</a>
+            <small>1</small>
+          </li>
 
-          <li><a href="/tags/Knife-Solo/">Knife Solo</a><small>2</small></li>
+          <li>
+            <a href="/tags/Knife-Solo/">Knife Solo</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/Mac/">Mac</a><small>2</small></li>
+          <li>
+            <a href="/tags/Mac/">Mac</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
+          <li>
+            <a href="/tags/PHP/">PHP</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/ParallelsDesktop/">ParallelsDesktop</a><small>2</small></li>
+          <li>
+            <a href="/tags/ParallelsDesktop/">ParallelsDesktop</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/Phalcon/">Phalcon</a><small>4</small></li>
+          <li>
+            <a href="/tags/Phalcon/">Phalcon</a>
+            <small>4</small>
+          </li>
 
-          <li><a href="/tags/Vagrant/">Vagrant</a><small>4</small></li>
+          <li>
+            <a href="/tags/Vagrant/">Vagrant</a>
+            <small>4</small>
+          </li>
 
-          <li><a href="/tags/VirtualBox/">VirtualBox</a><small>2</small></li>
+          <li>
+            <a href="/tags/VirtualBox/">VirtualBox</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/cookbook/">cookbook</a><small>1</small></li>
+          <li>
+            <a href="/tags/cookbook/">cookbook</a>
+            <small>1</small>
+          </li>
 
-          <li><a href="/tags/フレームワーク/">フレームワーク</a><small>1</small></li>
+          <li>
+            <a href="/tags/フレームワーク/">フレームワーク</a>
+            <small>1</small>
+          </li>
 
         </ul>
       </div>
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <!-- main -->
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8522245891659353" data-ad-slot="3498006029" data-ad-format="auto"></ins>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8522245891659353"
+      data-ad-slot="3498006029" data-ad-format="auto"></ins>
       <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
+
       </script>
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <!-- サンプル広告 -->
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8522245891659353" data-ad-slot="5676292825" data-ad-format="auto"></ins>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8522245891659353"
+      data-ad-slot="5676292825" data-ad-format="auto"></ins>
       <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
+
       </script>
     </aside>
     <div class="clearfix"></div>
@@ -648,12 +1183,13 @@ knife solo cook vagrant
   <footer id="footer" class="inner">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- ふった広告 -->
-    <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8522245891659353" data-ad-slot="8629759224"></ins>
+    <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8522245891659353"
+    data-ad-slot="8629759224"></ins>
     <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
+
     </script>
     <div class="clearfix"></div>
-
 
     <div class="alignleft">
 
@@ -665,6 +1201,7 @@ knife solo cook vagrant
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="/js/jquery.imagesloaded.min.js"></script>
   <script src="/js/gallery.js"></script>
+
 </body>
 
 </html>

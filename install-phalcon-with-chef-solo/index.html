@@ -9,25 +9,23 @@
 
   <meta name="description" content="Phalcon PHP, React, Docker, Vagrant, Parallels Desktop">
 
-
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="爆速PhalconをChef-soloで爆速インストール（Vagrant編）" />
   <meta property="og:site_name" content="Boblog" />
 
-
   <meta property="og:image" content="undefined" />
-
 
   <link href="/favicon.png" rel="icon">
   <link rel="alternate" href="true" title="Boblog" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.min.css" type="text/css">
 </head>
 
 <body>
   <!-- Google Tag Manager -->
   <noscript>
-    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-KD83WH" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-KD83WH" height="0" width="0"
+    style="display:none;visibility:hidden"></iframe>
   </noscript>
   <script>
     (function(w, d, s, l, i) {
@@ -44,19 +42,29 @@
         '//www.googletagmanager.com/gtm.js?id=' + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-KD83WH');
+
   </script>
   <!-- End Google Tag Manager -->
+
   <header id="header" class="inner">
     <div class="alignleft">
-      <h1><a href="/">Boblog</a></h1>
-      <h2><a href="/">Engineer, developping with Phalcon PHP, React, Docker, Vagrant</a></h2>
+      <h1>
+        <a href="/">Boblog</a>
+      </h1>
+      <h2>
+        <a href="/">Engineer, developping with Phalcon PHP, React, Docker, Vagrant</a>
+      </h2>
     </div>
     <nav id="main-nav" class="alignright">
       <ul>
 
-        <li><a href="/">Home</a></li>
+        <li>
+          <a href="/">Home</a>
+        </li>
 
-        <li><a href="/archives">Archives</a></li>
+        <li>
+          <a href="/archives">Archives</a>
+        </li>
 
       </ul>
       <div class="clearfix"></div>
@@ -72,15 +80,22 @@
             <header>
 
               <div class="icon"></div>
-              <time datetime="2015-10-14T13:47:57.000Z"><a href="/install-phalcon-with-chef-solo/">2015-10-14</a></time>
+              <time datetime="2015-10-14T13:47:57.000Z">
+                <a href="/install-phalcon-with-chef-solo/">2015-10-14</a>
+              </time>
 
-              <h1 class="title">爆速PhalconをChef-soloで爆速インストール（Vagrant編）</h1>
+              <h1 class="title">
+
+                爆速PhalconをChef-soloで爆速インストール（Vagrant編）</h1>
+
             </header>
             <div class="entry">
 
               <p>コア部分がC言語で記述されているがゆえ爆速に動作するPhalcon。
                 <br>これを爆速で動作できる環境をつくるために、Chefレシピを用意しました。</p>
-              <p><a href="https://github.com/aiMatz/cookbook-phalcon" target="_blank" rel="external">https://github.com/aiMatz/cookbook-phalcon</a></p>
+              <p>
+                <a href="https://github.com/aiMatz/cookbook-phalcon" target="_blank" rel="external">https://github.com/aiMatz/cookbook-phalcon</a>
+              </p>
               <p>Phalconを動かすまで意外と道のりがありまして、
                 <br>非常に手間なのでChefでやるのがベターですね。</p>
               <p>ここ最近は、vagrantが出てきたこともあって、
@@ -91,83 +106,116 @@
               <p>vagrantのインストールは、ググってくだされ(・ω・)</p>
               <h3 id="vagrant_box（OSイメージ）の取得">vagrant box（OSイメージ）の取得</h3>
               <p>Boxイメージは何でもOKですが、CentOS 6.5を使用してみた。</p>
-              <pre><code><span class="comment">// Macのターミナル</span>
-vagrant <span class="built_in">box</span> <span class="built_in">add</span> <span class="string">"CentOS 6.5 x86_64"</span> https:<span class="comment">//github.com/2creatives/vagrant-centos/releases/download/v6.5.3/centos65-x86_64-20140116.box</span>
+              <pre>
+                <code>
+                  <span class="comment">// Macのターミナル</span>
+                  vagrant
+                  <span class="built_in">box</span>
+                  <span class="built_in">add</span>
+                  <span class="string">"CentOS 6.5 x86_64"</span> https:
+                  <span class="comment">//github.com/2creatives/vagrant-centos/releases/download/v6.5.3/centos65-x86_64-20140116.box</span>
 
+                  vagrant init
+                  <span class="string">"CentOS 6.5 x86_64"</span>
 
-vagrant init <span class="string">"CentOS 6.5 x86_64"</span>
+                  <span class="comment">// vagrant起動！</span>
+                  vagrant up
 
-<span class="comment">// vagrant起動！</span>
-vagrant up
+                  <span class="comment">// vagrantにSSH接続ができるように設定</span>
+                  vagrant ssh-config --host vagrant &gt;&gt; ~/.ssh/config
 
+                  <span class="comment">// vagrantに接続できることを確認</span>
+                  ssh vagrant
 
-<span class="comment">// vagrantにSSH接続ができるように設定</span>
-vagrant ssh-config --host vagrant &gt;&gt; ~/.ssh/config
-
-<span class="comment">// vagrantに接続できることを確認</span>
-ssh vagrant
-
-<span class="built_in">exit</span>
-</code></pre>
-              <p>※boxのイメージは、<a href="http://www.vagrantbox.es/" target="_blank" rel="external">http://www.vagrantbox.es/</a>とかにたくさんあります。</p>
+                  <span class="built_in">exit</span>
+                </code>
+              </pre>
+              <p>※boxのイメージは、
+                <a href="http://www.vagrantbox.es/" target="_blank" rel="external">http://www.vagrantbox.es/</a>とかにたくさんあります。</p>
               <h3 id="knife-soloのインストール">knife-soloのインストール</h3>
               <p>knife-soloをインストールすると一式がインストールされるかと</p>
-              <pre><code><span class="comment">// Macのターミナル</span>
-gem <span class="tag">i</span> knife-solo
-</code></pre>
+              <pre>
+                <code>
+                  <span class="comment">// Macのターミナル</span>
+                  gem
+                  <span class="tag">i</span> knife-solo
+                </code>
+              </pre>
               <h3 id="chef_cookbookの準備">chef cookbookの準備</h3>
               <p>knife-soloでリポジトリを作成</p>
-              <pre><code><span class="comment">// Macのターミナル</span>
-knife solo <span class="keyword">init</span> chef-repository
-</code></pre>
+              <pre>
+                <code>
+                  <span class="comment">// Macのターミナル</span>
+                  knife solo
+                  <span class="keyword">init</span> chef-repository
+                </code>
+              </pre>
               <p>phalconインストール用のcookbookをダウンロード</p>
-              <pre><code><span class="comment">// Macのターミナル</span>
-git clone <span class="string">https:</span><span class="comment">//github.com/aiMatz/cookbook-phalcon chef-repository/site-cookbooks/phalcon</span>
+              <pre>
+                <code>
+                  <span class="comment">// Macのターミナル</span>
+                  git clone
+                  <span class="string">https:</span>
+                  <span class="comment">//github.com/aiMatz/cookbook-phalcon chef-repository/site-cookbooks/phalcon</span>
 
-cd chef-repository 
-</code></pre>
+                  cd chef-repository
+                </code>
+              </pre>
               <p>ここでvagrantのイメージにChefをインストール。</p>
-              <pre><code><span class="comment">// Macのターミナル</span>
-knife solo prepare vagrant
-</code></pre>
-              <p>実行後、<code>node/default.rb</code>が作成されます。
+              <pre>
+                <code>
+                  <span class="comment">// Macのターミナル</span>
+                  knife solo prepare vagrant
+                </code>
+              </pre>
+              <p>実行後、
+                <code>node/default.rb</code>が作成されます。
                 <br>recipe[phalcon]をrun_listに追加します。</p>
-              <pre><code><span class="comment">// Macのターミナル</span>
-vi node/<span class="keyword">default</span>.rb
+              <pre>
+                <code>
+                  <span class="comment">// Macのターミナル</span>
+                  vi node/
+                  <span class="keyword">default</span>.rb
 
-<span class="preprocessor"># {<span class="string">"run_list"</span>: [</span>
-    <span class="string">"recipe[phalcon]"</span>
-    ]
-  }
-</code></pre>
+                  <span class="preprocessor"># {
+                    <span class="string">"run_list"</span>: [</span>
+                  <span class="string">"recipe[phalcon]"</span>
+                  ] }
+                </code>
+              </pre>
               <p>準備ができたので、料理開始！！</p>
-              <pre><code><span class="comment">// Macのターミナル</span>
-knife solo cook vagrant
-</code></pre>
+              <pre>
+                <code>
+                  <span class="comment">// Macのターミナル</span>
+                  knife solo cook vagrant
+                </code>
+              </pre>
               <p>諸々のインストールが進んでいくはずです。
                 <br>完了したら、SSHログインして</p>
-              <pre><code>phalcon
-</code></pre>
+              <pre>
+                <code>phalcon
+                </code>
+              </pre>
               <p>とコマンドを打って、phalcon devtoolsの説明が表示されればインストールが完了です。</p>
               <p>Enjoy Phalcon!!</p>
 
             </div>
             <footer>
 
-
               <div class="tags">
-                <a href="/tags/Chef-Solo/">Chef Solo</a>, <a href="/tags/Knife-Solo/">Knife Solo</a>, <a href="/tags/Phalcon/">Phalcon</a>, <a href="/tags/Vagrant/">Vagrant</a>
+                <a href="/tags/Chef-Solo/">Chef Solo</a>,
+                <a href="/tags/Knife-Solo/">Knife Solo</a>,
+                <a href="/tags/Phalcon/">Phalcon</a>,
+                <a href="/tags/Vagrant/">Vagrant</a>
               </div>
+
               <div class="addthis addthis_toolbox addthis_default_style">
 
                 <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 
-
                 <a class="addthis_button_tweet"></a>
 
-
                 <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-
 
                 <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
 
@@ -183,7 +231,6 @@ knife solo cook vagrant
         <section id="comment">
           <h1 class="title">Comments</h1>
 
-
           <div id="fb-root"></div>
           <script>
             (function(d, s, id) {
@@ -191,13 +238,15 @@ knife solo cook vagrant
               if (d.getElementById(id)) return;
               js = d.createElement(s);
               js.id = id;
-              js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1471867629788452";
+              js.src =
+                "//connect.facebook.net/en_US/all.js#xfbml=1&appId=1471867629788452";
               fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
+
           </script>
 
-          <div class="fb-comments" data-href="http://boblog.ima0123.com/install-phalcon-with-chef-solo/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
-
+          <div class="fb-comments" data-href="http://boblog.ima0123.com/install-phalcon-with-chef-solo/index.html"
+          data-num-posts="5" data-width="840" data-colorscheme="light"></div>
 
         </section>
       </div>
@@ -210,51 +259,89 @@ knife solo cook vagrant
         </form>
       </div>
 
-
-
       <div class="widget tag">
         <h3 class="title">Tags</h3>
         <ul class="entry">
 
-          <li><a href="/tags/Berkshelf/">Berkshelf</a><small>1</small></li>
+          <li>
+            <a href="/tags/Berkshelf/">Berkshelf</a>
+            <small>1</small>
+          </li>
 
-          <li><a href="/tags/Chef-Solo/">Chef Solo</a><small>2</small></li>
+          <li>
+            <a href="/tags/Chef-Solo/">Chef Solo</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/Docker/">Docker</a><small>1</small></li>
+          <li>
+            <a href="/tags/Docker/">Docker</a>
+            <small>1</small>
+          </li>
 
-          <li><a href="/tags/Knife-Solo/">Knife Solo</a><small>2</small></li>
+          <li>
+            <a href="/tags/Knife-Solo/">Knife Solo</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/Mac/">Mac</a><small>2</small></li>
+          <li>
+            <a href="/tags/Mac/">Mac</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
+          <li>
+            <a href="/tags/PHP/">PHP</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/ParallelsDesktop/">ParallelsDesktop</a><small>2</small></li>
+          <li>
+            <a href="/tags/ParallelsDesktop/">ParallelsDesktop</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/Phalcon/">Phalcon</a><small>4</small></li>
+          <li>
+            <a href="/tags/Phalcon/">Phalcon</a>
+            <small>4</small>
+          </li>
 
-          <li><a href="/tags/Vagrant/">Vagrant</a><small>4</small></li>
+          <li>
+            <a href="/tags/Vagrant/">Vagrant</a>
+            <small>4</small>
+          </li>
 
-          <li><a href="/tags/VirtualBox/">VirtualBox</a><small>2</small></li>
+          <li>
+            <a href="/tags/VirtualBox/">VirtualBox</a>
+            <small>2</small>
+          </li>
 
-          <li><a href="/tags/cookbook/">cookbook</a><small>1</small></li>
+          <li>
+            <a href="/tags/cookbook/">cookbook</a>
+            <small>1</small>
+          </li>
 
-          <li><a href="/tags/フレームワーク/">フレームワーク</a><small>1</small></li>
+          <li>
+            <a href="/tags/フレームワーク/">フレームワーク</a>
+            <small>1</small>
+          </li>
 
         </ul>
       </div>
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <!-- main -->
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8522245891659353" data-ad-slot="3498006029" data-ad-format="auto"></ins>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8522245891659353"
+      data-ad-slot="3498006029" data-ad-format="auto"></ins>
       <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
+
       </script>
 
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <!-- サンプル広告 -->
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8522245891659353" data-ad-slot="5676292825" data-ad-format="auto"></ins>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8522245891659353"
+      data-ad-slot="5676292825" data-ad-format="auto"></ins>
       <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
+
       </script>
     </aside>
     <div class="clearfix"></div>
@@ -262,12 +349,13 @@ knife solo cook vagrant
   <footer id="footer" class="inner">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- ふった広告 -->
-    <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8522245891659353" data-ad-slot="8629759224"></ins>
+    <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8522245891659353"
+    data-ad-slot="8629759224"></ins>
     <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
+
     </script>
     <div class="clearfix"></div>
-
 
     <div class="alignleft">
 
@@ -279,6 +367,7 @@ knife solo cook vagrant
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="/js/jquery.imagesloaded.min.js"></script>
   <script src="/js/gallery.js"></script>
+
 </body>
 
 </html>
