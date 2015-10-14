@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>爆速Phalconの環境をBerkshelfで爆速インストール | Boblog</title>
+  <title>VagrantのBoxをアップデートする | Boblog</title>
   <meta name="author" content="ima0123">
   
   <meta name="description" content="Phalcon PHP, React, Docker, Vagrant, Parallels Desktop">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="爆速Phalconの環境をBerkshelfで爆速インストール"/>
+  <meta property="og:title" content="VagrantのBoxをアップデートする"/>
   <meta property="og:site_name" content="Boblog"/>
 
   
@@ -56,34 +56,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-10-14T13:46:39.000Z"><a href="/2015/10/14/cifqur0sr000e7fmltnydeo3w/">2015-10-14</a></time>
+        <time datetime="2015-10-14T13:40:30.000Z"><a href="/2015/10/14/cifquu05z0001duml0slpxiub/">2015-10-14</a></time>
       
       
   
-    <h1 class="title">爆速Phalconの環境をBerkshelfで爆速インストール</h1>
+    <h1 class="title">VagrantのBoxをアップデートする</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>前回Chef-soloのcookbookを手動でgit cloneする形でインストールしていたのですが<br>Berkshelfを使うとその手間も省けて、より爆速に環境がインストールできますね。</p>
-<p>今回はまっさらなvagrantが既に<code>vagrant up</code>されている状態という前提から<br>説明をスタートします。</p>
-<h3 id="Chefリポジトリの作成">Chefリポジトリの作成</h3><p>まずはChefリポジトリを作成します。</p>
-<pre><code><span class="title">knife</span> solo init ./chef-repository
-</code></pre><p>作成されたフォルダの中に<code>Berksfile</code>というファイルができているので編集します。</p>
-<pre><code><span class="label">cd</span> chef-repository
-<span class="label">vi</span> <span class="keyword">Berksfile </span>
-
-// 以下を追記します
-# cookbook <span class="string">"phalcon"</span>, git: <span class="string">"https://github.com/aiMatz/cookbook-phalcon.git"</span>, <span class="keyword">branch: </span><span class="string">"master"</span>
-</code></pre><h3 id="Berkshelfでcookbookをダウンロード">Berkshelfでcookbookをダウンロード</h3><p>Berksfileと同じディレクトリで以下のコマンドを実行します。</p>
-<pre><code><span class="keyword">berks </span>vendor
-</code></pre><p>すると、berks-cookbooksというフォルダが作成され、その中にphalconフォルダが作成されます。<br>この中身は、githubからダウンロードしたcookbookになるわけですね。</p>
-<p>続けて、<code>node/vagrant.localhost</code>のrun_listに<code>recipe[phalcon]</code>を追加します。</p>
-<h3 id="knife-soloの実行">knife-soloの実行</h3><p>現状、まだvagrantのBOXには<code>knife solo prepare vagrant</code>のコマンドを実行していないため<br>Chefがインストールされていない状態です。</p>
-<p>Chefがインストールされていない状態でも実行するためには、</p>
-<pre><code><span class="label">knife</span> solo <span class="keyword">bootstrap </span>vagrant 
-</code></pre><p>を実行すると、一時的にChefのインストールとCookbookの実行を同時に行ってくれるので便利です。<br>ただ、再度<code>knife solo cook vagrant</code>をしようとすると、Chefがインストールされていないと怒られるので、<br>予め、<code>knife solo prepare vagrant</code>を実行しておくことをおすすめします。</p>
+        <p>ダウンロードしたVagrantのBoxに更新があれば、アップデートすることができます。</p>
+<h2 id="Vagrantのアップデート">Vagrantのアップデート</h2><p>アップデートしたいBoxのVagrantfileがおいてあるディレクトリで、ターミナルから</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant <span class="keyword">box </span>update</span><br></pre></td></tr></table></figure>
+<p>これだけ。<br>新しいBoxは古いBoxに上書きされるのではなく、別のBoxとして保存されます。</p>
+<h2 id="Boxの一覧を表示する">Boxの一覧を表示する</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box <span class="type">list</span></span><br></pre></td></tr></table></figure>
+<p>Boxの一覧を表示できます。<br>下記のparallelsはProvider、0.2.0や1.0.0はバージョンですね。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">parallels/centos-<span class="number">6.5</span> (parallels, <span class="number">0.2</span><span class="number">.0</span>)</span><br><span class="line">parallels/centos-<span class="number">6.5</span> (parallels, <span class="number">1.0</span><span class="number">.0</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="古いBoxを削除する">古いBoxを削除する</h2><p>古いBoxを削除するには以下のコマンドを実行します。</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant <span class="keyword">box </span>remove &#123;<span class="keyword">box_name&#125; </span>--provider &#123;PROVIDER_NAME&#125; --<span class="keyword">box-version </span>VERSION</span><br></pre></td></tr></table></figure>
+<p>たとえば、上記のparallels/centos-6.5：バージョン0.20のBoxを削除するには</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box remove parallels/centos-<span class="number">6.5</span>  --box-version <span class="number">0.2</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+<p>再度、<code>vagrant box list</code>するとバージョン0.2.0のBoxが削除できていることを確認できます。</p>
 
       
     </div>
@@ -93,7 +87,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         
   
   <div class="tags">
-    <a href="/tags/Berkshelf/">Berkshelf</a>, <a href="/tags/Chef-Solo/">Chef Solo</a>, <a href="/tags/Knife-Solo/">Knife Solo</a>, <a href="/tags/Phalcon/">Phalcon</a>, <a href="/tags/Vagrant/">Vagrant</a>, <a href="/tags/cookbook/">cookbook</a>
+    <a href="/tags/ParallelsDesktop/">ParallelsDesktop</a>, <a href="/tags/Vagrant/">Vagrant</a>, <a href="/tags/VirtualBox/">VirtualBox</a>
   </div>
 
         
@@ -136,7 +130,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://boblog.ima0123.com/2015/10/14/cifqur0sr000e7fmltnydeo3w/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://boblog.ima0123.com/2015/10/14/cifquu05z0001duml0slpxiub/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
@@ -159,25 +153,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   
     <li><a href="/tags/Berkshelf/">Berkshelf</a><small>1</small></li>
   
-    <li><a href="/tags/Chef-Solo/">Chef Solo</a><small>1</small></li>
+    <li><a href="/tags/Chef-Solo/">Chef Solo</a><small>2</small></li>
   
     <li><a href="/tags/Docker/">Docker</a><small>1</small></li>
   
-    <li><a href="/tags/Knife-Solo/">Knife Solo</a><small>1</small></li>
+    <li><a href="/tags/Knife-Solo/">Knife Solo</a><small>2</small></li>
   
-    <li><a href="/tags/Mac/">Mac</a><small>1</small></li>
+    <li><a href="/tags/Mac/">Mac</a><small>2</small></li>
   
-    <li><a href="/tags/PHP/">PHP</a><small>1</small></li>
+    <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
   
     <li><a href="/tags/ParallelsDesktop/">ParallelsDesktop</a><small>2</small></li>
   
-    <li><a href="/tags/Phalcon/">Phalcon</a><small>2</small></li>
+    <li><a href="/tags/Phalcon/">Phalcon</a><small>4</small></li>
   
-    <li><a href="/tags/Vagrant/">Vagrant</a><small>3</small></li>
+    <li><a href="/tags/Vagrant/">Vagrant</a><small>4</small></li>
   
     <li><a href="/tags/VirtualBox/">VirtualBox</a><small>2</small></li>
   
     <li><a href="/tags/cookbook/">cookbook</a><small>1</small></li>
+  
+    <li><a href="/tags/フレームワーク/">フレームワーク</a><small>1</small></li>
   
   </ul>
 </div>
