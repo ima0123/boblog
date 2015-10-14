@@ -9,7 +9,7 @@
     </url>
 
     <url>
-        <loc>http://boblog.ima0123.com/tags/Phalcon/</loc>
+        <loc>http://boblog.ima0123.com/tags/PHP/</loc>
         <lastmod>2015-10-14T13:45:35.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -23,14 +23,7 @@
     </url>
 
     <url>
-        <loc>http://boblog.ima0123.com/tags/PHP/</loc>
-        <lastmod>2015-10-14T13:45:35.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://boblog.ima0123.com/tags/Vagrant/</loc>
+        <loc>http://boblog.ima0123.com/tags/VirtualBox/</loc>
         <lastmod>2015-10-14T13:45:44.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -44,8 +37,43 @@
     </url>
 
     <url>
-        <loc>http://boblog.ima0123.com/tags/VirtualBox/</loc>
-        <lastmod>2015-10-14T13:45:44.000Z</lastmod>
+        <loc>http://boblog.ima0123.com/tags/Vagrant/</loc>
+        <lastmod>2015-10-14T13:47:30.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://boblog.ima0123.com/tags/Phalcon/</loc>
+        <lastmod>2015-10-14T13:47:30.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://boblog.ima0123.com/tags/Berkshelf/</loc>
+        <lastmod>2015-10-14T13:47:30.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://boblog.ima0123.com/tags/Chef-Solo/</loc>
+        <lastmod>2015-10-14T13:47:30.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://boblog.ima0123.com/tags/Knife-Solo/</loc>
+        <lastmod>2015-10-14T13:47:30.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://boblog.ima0123.com/tags/cookbook/</loc>
+        <lastmod>2015-10-14T13:47:30.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
