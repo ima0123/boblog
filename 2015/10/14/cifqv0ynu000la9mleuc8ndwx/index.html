@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mac御用達のParallelsDesktopを使ってVagrantを起動する | Boblog</title>
+  <title>爆速PhalconをChef-soloで爆速インストール（Vagrant編） | Boblog</title>
   <meta name="author" content="ima0123">
   
   <meta name="description" content="Phalcon PHP, React, Docker, Vagrant, Parallels Desktop">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Mac御用達のParallelsDesktopを使ってVagrantを起動する"/>
+  <meta property="og:title" content="爆速PhalconをChef-soloで爆速インストール（Vagrant編）"/>
   <meta property="og:site_name" content="Boblog"/>
 
   
@@ -56,49 +56,70 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-10-14T13:43:26.000Z"><a href="/2015/10/14/cifquu0690008dumlu8gpnuki/">2015-10-14</a></time>
+        <time datetime="2015-10-14T13:47:57.000Z"><a href="/2015/10/14/cifqv0ynu000la9mleuc8ndwx/">2015-10-14</a></time>
       
       
   
-    <h1 class="title">Mac御用達のParallelsDesktopを使ってVagrantを起動する</h1>
+    <h1 class="title">爆速PhalconをChef-soloで爆速インストール（Vagrant編）</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="ParallelsDesktopとVirtualBoxの起動の両立ができない">ParallelsDesktopとVirtualBoxの起動の両立ができない</h2><p>僕はMacユーザーなのですが、WindowsPCを使う機会も少々あるので<br>ParallelsDesktopというソフトを使ってMacの上でWindows7を起動して使っています。</p>
-<p>ParallelsDesktopを使っていて不便なのは<br>ParallelsDesktopを起動している状態でVagrant(VirtualBox)を起動をするとエラーが発生していまうことです。</p>
-<p>今まではVagrant(VirtualBox)を使って起動していた仮想OSを全て停止して<br>ParallelsDesktopを起動したり、その逆もしかり、という状態で非常に不便。。</p>
-<p>そこでVagrantをParallelsDesktop経由で起動するように設定しました。</p>
-<h2 id="VagrantをVirtualBoxではなくParallelsDesktopで行う">VagrantをVirtualBoxではなくParallelsDesktopで行う</h2><p>WindowsをVirtualBoxで起動する方法やVirtualBoxとParallelsDesktopを共存させる方法なども検討しましたが<br>VirtualBoxを使っていたVagrantをParalellsDesktopに移動させることにしました。</p>
-<h3 id="メリット">メリット</h3><ul>
-<li><p>VirtualBoxがもういらない</p>
-</li>
-<li><p>Vagrantで起動したCentOSを起動した状態で、ParallelsDesktopでWindowsを起動できる</p>
-</li>
-</ul>
-<h3 id="デメリット">デメリット</h3><ul>
-<li>対応しているBoxが少ない<br>[<a href="https://vagrantcloud.com/search?provider=parallels" target="_blank" rel="external">https://vagrantcloud.com/search?provider=parallels</a>]<br>（古いバージョンのOSなどには対応していないようです）</li>
-</ul>
-<p>※ ほかにも何かあったら教えてください</p>
-<h2 id="Vagrantの標準仮想化ソフトウェアをParallelsDesktopに変える">Vagrantの標準仮想化ソフトウェアをParallelsDesktopに変える</h2><p>Vagrantの標準で使用する仮想化ソフトウェアはVirtualBoxです。<br>標準の仮想化ソフトウェアをParallelsDesktopに変えるには以下の手順でできます。</p>
-<h3 id="前提">前提</h3><ul>
-<li><p>ParallelsDesktop10がインストールされている<br>(公式のページによるとParallelsDesktop8以上であればOK)</p>
-</li>
-<li><p>vagrantがすでに動作できる状態にある<br><code>vagrant -v</code>するとvagrantのバージョンが表示されること  </p>
-</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant -v  </span><br><span class="line">Vagrant <span class="number">1.6</span><span class="number">.5</span></span><br></pre></td></tr></table></figure>
-<h3 id="手順">手順</h3><h4 id="VagrantPluginをインストール">VagrantPluginをインストール</h4><p>VagrantをParallelsDesktopに変えるVagrantのプラグインをインストールします。<br>Macのコマンドラインで以下のコマンドを実行します。<br>（ディレクトリはどこでもOK）</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant plugin <span class="keyword">install</span> vagrant-parallels</span><br></pre></td></tr></table></figure>
-<p>エラーが表示されずにSucessすればOK</p>
-<h4 id="環境変数にデフォルトの起動仮想化ソフトを指定する">環境変数にデフォルトの起動仮想化ソフトを指定する</h4><p>bashrcやzshrcに以下を指定する</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> VAGRANT_DEFAULT_PROVIDER=parallels</span><br></pre></td></tr></table></figure>
-<p>コマンドラインから<code>echo VAGRANT_DEFAULT_PROVIDER</code>して<code>parallels</code>が表示されればOK</p>
-<h4 id="CentOS6-5をインストールする">CentOS6.5をインストールする</h4><p>Macのターミナルから以下のコマンドを実行します。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/vagrant/centos-<span class="number">6.5</span> <span class="comment">// お好きなディレクトリでどうぞ</span></span><br><span class="line">vagrant init parallels/centos-<span class="number">6.5</span></span><br><span class="line">vagrant up</span><br></pre></td></tr></table></figure>
-<p><code>default: Machine booted and ready!</code>と出れば正常に起動成功！</p>
-<p>これでParallelsDesktopを使った起動ができました。<br>Enjoy Vagrant running on ParallelsDesktop!</p>
+        <p>コア部分がC言語で記述されているがゆえ爆速に動作するPhalcon。<br>これを爆速で動作できる環境をつくるために、Chefレシピを用意しました。</p>
+<p><a href="https://github.com/aiMatz/cookbook-phalcon" target="_blank" rel="external">https://github.com/aiMatz/cookbook-phalcon</a></p>
+<p>Phalconを動かすまで意外と道のりがありまして、<br>非常に手間なのでChefでやるのがベターですね。</p>
+<p>ここ最近は、vagrantが出てきたこともあって、<br>開発マシンを汚さずに手軽に作成することができて、便利な世の中です。</p>
+<p>vagrantへの各種インストール作業は、Chefのcookbookを使います。<br>実行はやっぱり、knife-soloですよね。</p>
+<h3 id="vagrantの用意">vagrantの用意</h3><p>vagrantのインストールは、ググってくだされ(・ω・)</p>
+<h3 id="vagrant_box（OSイメージ）の取得">vagrant box（OSイメージ）の取得</h3><p>Boxイメージは何でもOKですが、CentOS 6.5を使用してみた。</p>
+<pre><code><span class="comment">// Macのターミナル</span>
+vagrant <span class="built_in">box</span> <span class="built_in">add</span> <span class="string">"CentOS 6.5 x86_64"</span> https:<span class="comment">//github.com/2creatives/vagrant-centos/releases/download/v6.5.3/centos65-x86_64-20140116.box</span>
+
+
+vagrant init <span class="string">"CentOS 6.5 x86_64"</span>
+
+<span class="comment">// vagrant起動！</span>
+vagrant up
+
+
+<span class="comment">// vagrantにSSH接続ができるように設定</span>
+vagrant ssh-config --host vagrant &gt;&gt; ~/.ssh/config
+
+<span class="comment">// vagrantに接続できることを確認</span>
+ssh vagrant
+
+<span class="built_in">exit</span>
+</code></pre><p>※boxのイメージは、<a href="http://www.vagrantbox.es/" target="_blank" rel="external">http://www.vagrantbox.es/</a>とかにたくさんあります。</p>
+<h3 id="knife-soloのインストール">knife-soloのインストール</h3><p>knife-soloをインストールすると一式がインストールされるかと</p>
+<pre><code><span class="comment">// Macのターミナル</span>
+gem <span class="tag">i</span> knife-solo
+</code></pre><h3 id="chef_cookbookの準備">chef cookbookの準備</h3><p>knife-soloでリポジトリを作成</p>
+<pre><code><span class="comment">// Macのターミナル</span>
+knife solo <span class="keyword">init</span> chef-repository
+</code></pre><p>phalconインストール用のcookbookをダウンロード</p>
+<pre><code><span class="comment">// Macのターミナル</span>
+git clone <span class="string">https:</span><span class="comment">//github.com/aiMatz/cookbook-phalcon chef-repository/site-cookbooks/phalcon</span>
+
+cd chef-repository 
+</code></pre><p>ここでvagrantのイメージにChefをインストール。</p>
+<pre><code><span class="comment">// Macのターミナル</span>
+knife solo prepare vagrant
+</code></pre><p>実行後、<code>node/default.rb</code>が作成されます。<br>recipe[phalcon]をrun_listに追加します。</p>
+<pre><code><span class="comment">// Macのターミナル</span>
+vi node/<span class="keyword">default</span>.rb
+
+<span class="preprocessor"># {<span class="string">"run_list"</span>: [</span>
+    <span class="string">"recipe[phalcon]"</span>
+    ]
+  }
+</code></pre><p>準備ができたので、料理開始！！</p>
+<pre><code><span class="comment">// Macのターミナル</span>
+knife solo cook vagrant
+</code></pre><p>諸々のインストールが進んでいくはずです。<br>完了したら、SSHログインして</p>
+<pre><code>phalcon
+</code></pre><p>とコマンドを打って、phalcon devtoolsの説明が表示されればインストールが完了です。</p>
+<p>Enjoy Phalcon!!</p>
 
       
     </div>
@@ -108,7 +129,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         
   
   <div class="tags">
-    <a href="/tags/Mac/">Mac</a>, <a href="/tags/ParallelsDesktop/">ParallelsDesktop</a>, <a href="/tags/Vagrant/">Vagrant</a>, <a href="/tags/VirtualBox/">VirtualBox</a>
+    <a href="/tags/Chef-Solo/">Chef Solo</a>, <a href="/tags/Knife-Solo/">Knife Solo</a>, <a href="/tags/Phalcon/">Phalcon</a>, <a href="/tags/Vagrant/">Vagrant</a>
   </div>
 
         
@@ -151,7 +172,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://boblog.ima0123.com/2015/10/14/cifquu0690008dumlu8gpnuki/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://boblog.ima0123.com/2015/10/14/cifqv0ynu000la9mleuc8ndwx/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
