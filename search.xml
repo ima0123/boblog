@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[超高速PHPフレームワークPhalconを使ったWeb制作]]></title>
-      <url>http://boblog.ima0123.com/2015/10/14/cifqvzn5t00113pmlb84za56s/</url>
+      <url>http://boblog.ima0123.com/2015/10/14/develop-with-phalcon-that-perform-faster/</url>
       <content type="html"><![CDATA[<p>Falconと間違えやすいですよね、Phalcon。<br>インストール時にこの勘違いは致命的です。。</p>
 <p><a href="http://phalconphp.com/ja/" target="_blank" rel="external">http://phalconphp.com/ja/</a></p>
 <h2 id="爆速とよばれるPHPフレームワークPhalcon">爆速とよばれるPHPフレームワークPhalcon</h2><p>最近Phalconを使ってWeb制作をしていますが非常に高速に動作し、<br>仕組みもいわゆるフレームワークの概念から大きく外れておらず<br>開発のやりがいのある印象です。</p>
@@ -86,7 +86,7 @@ Available commands:
     
     <entry>
       <title><![CDATA[爆速PhalconをChef-soloで爆速インストール（Vagrant編）]]></title>
-      <url>http://boblog.ima0123.com/2015/10/14/cifqvzn5k000l3pmlngqc17pp/</url>
+      <url>http://boblog.ima0123.com/2015/10/14/install-phalcon-with-chef-solo/</url>
       <content type="html"><![CDATA[<p>コア部分がC言語で記述されているがゆえ爆速に動作するPhalcon。<br>これを爆速で動作できる環境をつくるために、Chefレシピを用意しました。</p>
 <p><a href="https://github.com/aiMatz/cookbook-phalcon" target="_blank" rel="external">https://github.com/aiMatz/cookbook-phalcon</a></p>
 <p>Phalconを動かすまで意外と道のりがありまして、<br>非常に手間なのでChefでやるのがベターですね。</p>
@@ -146,7 +146,7 @@ knife solo cook vagrant
     
     <entry>
       <title><![CDATA[爆速Phalconの環境をBerkshelfで爆速インストール]]></title>
-      <url>http://boblog.ima0123.com/2015/10/14/cifqvzn5o000s3pmlqx2anl6g/</url>
+      <url>http://boblog.ima0123.com/2015/10/14/install-phalcon-with-berkshelf/</url>
       <content type="html"><![CDATA[<p>前回Chef-soloのcookbookを手動でgit cloneする形でインストールしていたのですが<br>Berkshelfを使うとその手間も省けて、より爆速に環境がインストールできますね。</p>
 <p>今回はまっさらなvagrantが既に<code>vagrant up</code>されている状態という前提から<br>説明をスタートします。</p>
 <h3 id="Chefリポジトリの作成">Chefリポジトリの作成</h3><p>まずはChefリポジトリを作成します。</p>
@@ -170,7 +170,7 @@ knife solo cook vagrant
     
     <entry>
       <title><![CDATA[Mac御用達のParallelsDesktopを使ってVagrantを起動する]]></title>
-      <url>http://boblog.ima0123.com/2015/10/14/cifqvzn5c00083pmlg6qy4ynv/</url>
+      <url>http://boblog.ima0123.com/2015/10/14/startup-parallels-desktop/</url>
       <content type="html"><![CDATA[<h2 id="ParallelsDesktopとVirtualBoxの起動の両立ができない">ParallelsDesktopとVirtualBoxの起動の両立ができない</h2><p>僕はMacユーザーなのですが、WindowsPCを使う機会も少々あるので<br>ParallelsDesktopというソフトを使ってMacの上でWindows7を起動して使っています。</p>
 <p>ParallelsDesktopを使っていて不便なのは<br>ParallelsDesktopを起動している状態でVagrant(VirtualBox)を起動をするとエラーが発生していまうことです。</p>
 <p>今まではVagrant(VirtualBox)を使って起動していた仮想OSを全て停止して<br>ParallelsDesktopを起動したり、その逆もしかり、という状態で非常に不便。。</p>
@@ -209,7 +209,7 @@ knife solo cook vagrant
     
     <entry>
       <title><![CDATA[VagrantのBoxをアップデートする]]></title>
-      <url>http://boblog.ima0123.com/2015/10/14/cifqvzn5300013pml7eacmoad/</url>
+      <url>http://boblog.ima0123.com/2015/10/14/update-vagrant/</url>
       <content type="html"><![CDATA[<p>ダウンロードしたVagrantのBoxに更新があれば、アップデートすることができます。</p>
 <h2 id="Vagrantのアップデート">Vagrantのアップデート</h2><p>アップデートしたいBoxのVagrantfileがおいてあるディレクトリで、ターミナルから</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant <span class="keyword">box </span>update</span><br></pre></td></tr></table></figure>
@@ -227,7 +227,7 @@ knife solo cook vagrant
     
     <entry>
       <title><![CDATA[Phalconが評判になってきたから、動作環境構築のおさらいでもしようか]]></title>
-      <url>http://boblog.ima0123.com/2015/10/10/cifqvzn5h000e3pml71h8b4ue/</url>
+      <url>http://boblog.ima0123.com/2015/10/10/rereview_phalcon/</url>
       <content type="html"><![CDATA[<p>Phalcon PHPを周囲でもちらほら聞くようになってきました。</p>
 <p>いいですよね、Phalconは。</p>
 <p>なんて言ったって処理速度が速いし省メモリなので、多くのトランザクションを捌きたいというニーズにぴったりとはまります。</p>
