@@ -4,8 +4,47 @@
   
     
     <entry>
+      <title><![CDATA[Mac御用達のParallelsDesktopを使ってVagrantを起動する]]></title>
+      <url>http://boblog.ima0123.com/2015/10/14/cifqum9o8000405mlmjcygkr1/</url>
+      <content type="html"><![CDATA[<h2 id="ParallelsDesktopとVirtualBoxの起動の両立ができない">ParallelsDesktopとVirtualBoxの起動の両立ができない</h2><p>僕はMacユーザーなのですが、WindowsPCを使う機会も少々あるので<br>ParallelsDesktopというソフトを使ってMacの上でWindows7を起動して使っています。</p>
+<p>ParallelsDesktopを使っていて不便なのは<br>ParallelsDesktopを起動している状態でVagrant(VirtualBox)を起動をするとエラーが発生していまうことです。</p>
+<p>今まではVagrant(VirtualBox)を使って起動していた仮想OSを全て停止して<br>ParallelsDesktopを起動したり、その逆もしかり、という状態で非常に不便。。</p>
+<p>そこでVagrantをParallelsDesktop経由で起動するように設定しました。</p>
+<h2 id="VagrantをVirtualBoxではなくParallelsDesktopで行う">VagrantをVirtualBoxではなくParallelsDesktopで行う</h2><p>WindowsをVirtualBoxで起動する方法やVirtualBoxとParallelsDesktopを共存させる方法なども検討しましたが<br>VirtualBoxを使っていたVagrantをParalellsDesktopに移動させることにしました。</p>
+<h3 id="メリット">メリット</h3><ul>
+<li><p>VirtualBoxがもういらない</p>
+</li>
+<li><p>Vagrantで起動したCentOSを起動した状態で、ParallelsDesktopでWindowsを起動できる</p>
+</li>
+</ul>
+<h3 id="デメリット">デメリット</h3><ul>
+<li>対応しているBoxが少ない<br>[<a href="https://vagrantcloud.com/search?provider=parallels" target="_blank" rel="external">https://vagrantcloud.com/search?provider=parallels</a>]<br>（古いバージョンのOSなどには対応していないようです）</li>
+</ul>
+<p>※ ほかにも何かあったら教えてください</p>
+<h2 id="Vagrantの標準仮想化ソフトウェアをParallelsDesktopに変える">Vagrantの標準仮想化ソフトウェアをParallelsDesktopに変える</h2><p>Vagrantの標準で使用する仮想化ソフトウェアはVirtualBoxです。<br>標準の仮想化ソフトウェアをParallelsDesktopに変えるには以下の手順でできます。</p>
+<h3 id="前提">前提</h3><ul>
+<li><p>ParallelsDesktop10がインストールされている<br>(公式のページによるとParallelsDesktop8以上であればOK)</p>
+</li>
+<li><p>vagrantがすでに動作できる状態にある<br><code>vagrant -v</code>するとvagrantのバージョンが表示されること  </p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant -v  </span><br><span class="line">Vagrant <span class="number">1.6</span><span class="number">.5</span></span><br></pre></td></tr></table></figure>
+<h3 id="手順">手順</h3><h4 id="VagrantPluginをインストール">VagrantPluginをインストール</h4><p>VagrantをParallelsDesktopに変えるVagrantのプラグインをインストールします。<br>Macのコマンドラインで以下のコマンドを実行します。<br>（ディレクトリはどこでもOK）</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant plugin <span class="keyword">install</span> vagrant-parallels</span><br></pre></td></tr></table></figure>
+<p>エラーが表示されずにSucessすればOK</p>
+<h4 id="環境変数にデフォルトの起動仮想化ソフトを指定する">環境変数にデフォルトの起動仮想化ソフトを指定する</h4><p>bashrcやzshrcに以下を指定する</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> VAGRANT_DEFAULT_PROVIDER=parallels</span><br></pre></td></tr></table></figure>
+<p>コマンドラインから<code>echo VAGRANT_DEFAULT_PROVIDER</code>して<code>parallels</code>が表示されればOK</p>
+<h4 id="CentOS6-5をインストールする">CentOS6.5をインストールする</h4><p>Macのターミナルから以下のコマンドを実行します。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/vagrant/centos-<span class="number">6.5</span> <span class="comment">// お好きなディレクトリでどうぞ</span></span><br><span class="line">vagrant init parallels/centos-<span class="number">6.5</span></span><br><span class="line">vagrant up</span><br></pre></td></tr></table></figure>
+<p><code>default: Machine booted and ready!</code>と出れば正常に起動成功！</p>
+<p>これでParallelsDesktopを使った起動ができました。<br>Enjoy Vagrant running on ParallelsDesktop!</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[VagrantのBoxをアップデートする]]></title>
-      <url>http://boblog.ima0123.com/2015/10/14/cifqukcpk0001w3mlofhppl0j/</url>
+      <url>http://boblog.ima0123.com/2015/10/14/cifqum9nz000105mlloa6ifqt/</url>
       <content type="html"><![CDATA[<p>ダウンロードしたVagrantのBoxに更新があれば、アップデートすることができます。</p>
 <h2 id="Vagrantのアップデート">Vagrantのアップデート</h2><p>アップデートしたいBoxのVagrantfileがおいてあるディレクトリで、ターミナルから</p>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant <span class="keyword">box </span>update</span><br></pre></td></tr></table></figure>
@@ -23,7 +62,7 @@
     
     <entry>
       <title><![CDATA[Phalconが評判になってきたから、動作環境構築のおさらいでもしようか]]></title>
-      <url>http://boblog.ima0123.com/2015/10/10/cifqukcq00005w3ml9l2siggw/</url>
+      <url>http://boblog.ima0123.com/2015/10/10/cifqum9oe000805mlddi9lnws/</url>
       <content type="html"><![CDATA[<p>Phalcon PHPを周囲でもちらほら聞くようになってきました。</p>
 <p>いいですよね、Phalconは。</p>
 <p>なんて言ったって処理速度が速いし省メモリなので、多くのトランザクションを捌きたいというニーズにぴったりとはまります。</p>
@@ -42,7 +81,7 @@
     
     <entry>
       <title><![CDATA[Hello World]]></title>
-      <url>http://boblog.ima0123.com/2015/10/09/cifqukcpx0004w3mlcz4u1uv1/</url>
+      <url>http://boblog.ima0123.com/2015/10/09/cifqum9ob000705mlhrc4a8ho/</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
